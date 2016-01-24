@@ -425,14 +425,14 @@ var registry = {
 };
 
 var labels = {
-	'instagram':'Instagram',
+	'instagram':'#cubebot',
 	'static':'Additional Info',
-	'youtube':'Youtube',
-	'photos':'Cubebot Faces',
+	'youtube':'Watch',
+	'photos':'MEET CUBEBOT',
 
-	'cub-sol':'Cubebot Solution',
-	'jul-sol':'Julien Solution',
-	'gut-sol':'Gutherie Solution',
+	'cub-sol':'Solve Cubebot',
+	'jul-sol':'Solve Julien',
+	'gut-sol':'Solve Guthrie',
 }
 
 var Configuration = BaseCollection.extend({

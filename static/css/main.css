@@ -7,22 +7,40 @@
   clear: both; }
 
 .front {
-  background-color: rgba(35, 255, 3, 0.5); }
+  background-color: #CC3300; }
+  .front:hover {
+    border-color: #CC3300;
+    color: #CC3300; }
 
 .right {
-  background-color: #ECFF5B; }
+  background-color: #0033CC; }
+  .right:hover {
+    border-color: #0033CC;
+    color: #0033CC; }
 
 .back {
-  background-color: rgba(0, 0, 200, 0.75); }
+  background-color: #006666; }
+  .back:hover {
+    border-color: #006666;
+    color: #006666; }
 
 .left {
-  background-color: #E68DEC; }
+  background-color: #FF99CC; }
+  .left:hover {
+    border-color: #FF99CC;
+    color: #FF99CC; }
 
 .top {
-  background-color: #E8EC21; }
+  background-color: #000000; }
+  .top:hover {
+    border-color: #000000;
+    color: #000000; }
 
 .bottom {
-  background-color: #81C9EC; }
+  background-color: #FFCC00; }
+  .bottom:hover {
+    border-color: #FFCC00;
+    color: #FFCC00; }
 
 html, body {
   margin: 0;
@@ -118,8 +136,14 @@ nav {
     margin: 5px 0 10px 0;
     border-color: blue; }
   nav a {
+    -webkit-transition: color 0.15s, border-color 0.15s;
+    -moz-transition: color 0.15s, border-color 0.15s;
+    -ms-transition: color 0.15s, border-color 0.15s;
+    -o-transition: color 0.15s, border-color 0.15s;
+    transition: color 0.15s, border-color 0.15s;
+    background-color: #FFF !important;
     border: solid 2px #000;
-    padding: 15px 25px;
+    padding: 7px 12px;
     text-transform: uppercase;
     text-decoration: none;
     font-family: 'arial';
@@ -129,9 +153,9 @@ nav {
     nav a.yellow {
       background-color: #fff200; }
     nav a:link {
-      color: black; }
+      color: #000; }
     nav a:visited {
-      color: black; }
+      color: #000; }
     nav a:hover {
       color: blue;
       border-color: blue; }
@@ -164,7 +188,7 @@ nav {
   #keyMap li {
     position: absolute;
     cursor: pointer;
-    padding: 5px;
+    padding: 3px;
     background-color: #FFF; }
     #keyMap li:hover {
       color: blue; }

@@ -3,12 +3,12 @@ $w:95vh;
 $h:$w;
 
 /* TODO: colors defined here */
-$front-face-color:rgba(35,255,3,0.5);
-$right-face-color:#ECFF5B;
-$back-face-color:rgba(0,0,200,0.75);
-$left-face-color:#E68DEC;
-$top-face-color:#E8EC21;
-$bottom-face-color:#81C9EC;
+$front-face-bgcolor:#CC3300;
+$right-face-bgcolor:#0033CC;
+$back-face-bgcolor:#006666;
+$left-face-bgcolor:#FF99CC;
+$top-face-bgcolor:#000000;
+$bottom-face-bgcolor:#FFCC00;
 
 $hover-color: blue;
 $link-color: black;
@@ -69,22 +69,52 @@ $link-color: black;
 }
 
 .front {
-    background-color:$front-face-color;
+    background-color:$front-face-bgcolor;
+
+    &:hover {
+        border-color:$front-face-bgcolor;
+        color:$front-face-bgcolor;
+    }
 }
 .right {
-    background-color:$right-face-color;
+    background-color:$right-face-bgcolor;
+
+    &:hover {
+        border-color:$right-face-bgcolor;
+        color:$right-face-bgcolor;
+    }
 }
 .back {
-    background-color:$back-face-color;
+    background-color:$back-face-bgcolor;
+
+    &:hover {
+        border-color:$back-face-bgcolor;
+        color:$back-face-bgcolor;
+    }
 }
 .left {
-    background-color:$left-face-color;
+    background-color:$left-face-bgcolor;
+
+    &:hover {
+        border-color:$left-face-bgcolor;
+        color:$left-face-bgcolor;
+    }
 }
 .top {
-    background-color:$top-face-color;
+    background-color:$top-face-bgcolor;
+
+    &:hover {
+        border-color:$top-face-bgcolor;
+        color:$top-face-bgcolor;
+    }
 }
 .bottom {
-    background-color:$bottom-face-color;
+    background-color:$bottom-face-bgcolor;
+
+    &:hover {
+        border-color:$bottom-face-bgcolor;
+        color:$bottom-face-bgcolor;
+    }
 }
 
 

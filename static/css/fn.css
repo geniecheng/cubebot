@@ -7,19 +7,37 @@
   clear: both; }
 
 .front {
-  background-color: rgba(35, 255, 3, 0.5); }
+  background-color: #CC3300; }
+  .front:hover {
+    border-color: #CC3300;
+    color: #CC3300; }
 
 .right {
-  background-color: #ECFF5B; }
+  background-color: #0033CC; }
+  .right:hover {
+    border-color: #0033CC;
+    color: #0033CC; }
 
 .back {
-  background-color: rgba(0, 0, 200, 0.75); }
+  background-color: #006666; }
+  .back:hover {
+    border-color: #006666;
+    color: #006666; }
 
 .left {
-  background-color: #E68DEC; }
+  background-color: #FF99CC; }
+  .left:hover {
+    border-color: #FF99CC;
+    color: #FF99CC; }
 
 .top {
-  background-color: #E8EC21; }
+  background-color: #000000; }
+  .top:hover {
+    border-color: #000000;
+    color: #000000; }
 
 .bottom {
-  background-color: #81C9EC; }
+  background-color: #FFCC00; }
+  .bottom:hover {
+    border-color: #FFCC00;
+    color: #FFCC00; }
