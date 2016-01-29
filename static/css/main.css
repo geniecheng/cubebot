@@ -20,25 +20,25 @@
 
 .back {
   background-color: #006666; }
-  .back:hover {
+  .back:hover span {
     border-color: #006666;
     color: #006666; }
 
 .left {
   background-color: #FF99CC; }
-  .left:hover {
+  .left:hover span {
     border-color: #FF99CC;
     color: #FF99CC; }
 
 .top {
   background-color: #000000; }
-  .top:hover {
+  .top:hover span {
     border-color: #000000;
     color: #000000; }
 
 .bottom {
   background-color: #FFCC00; }
-  .bottom:hover {
+  .bottom:hover span {
     border-color: #FFCC00;
     color: #FFCC00; }
 
@@ -136,27 +136,30 @@ nav {
     margin: 5px 0 10px 0;
     border-color: blue; }
   nav a {
-    -webkit-transition: color 0.15s, border-color 0.15s;
-    -moz-transition: color 0.15s, border-color 0.15s;
-    -ms-transition: color 0.15s, border-color 0.15s;
-    -o-transition: color 0.15s, border-color 0.15s;
-    transition: color 0.15s, border-color 0.15s;
-    background-color: #FFF !important;
-    border: solid 2px #000;
-    padding: 7px 12px;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-family: 'arial';
-    margin-bottom: 5px;
+    padding: 2px 0;
     text-align: center;
-    max-width: 100px; }
+    text-decoration: none;
+    background-color: transparent !important; }
+    nav a span {
+      -webkit-transition: color 0.15s, border-color 0.15s;
+      -moz-transition: color 0.15s, border-color 0.15s;
+      -ms-transition: color 0.15s, border-color 0.15s;
+      -o-transition: color 0.15s, border-color 0.15s;
+      transition: color 0.15s, border-color 0.15s;
+      display: block;
+      max-width: 100px;
+      text-transform: uppercase;
+      font-family: 'arial';
+      padding: 7px 12px;
+      background-color: #FFF !important;
+      border: solid 2px #000; }
     nav a.yellow {
       background-color: #fff200; }
     nav a:link {
       color: #000; }
     nav a:visited {
       color: #000; }
-    nav a:hover {
+    nav a:hover span {
       color: blue;
       border-color: blue; }
 
@@ -187,16 +190,14 @@ nav {
   z-index: 99; }
   #keyMap li {
     position: absolute;
-    cursor: pointer;
-    padding: 3px;
-    background-color: #FFF; }
+    cursor: pointer; }
     #keyMap li:hover {
       color: blue; }
   #keyMap li:nth-child(1) {
-    -webkit-transform: translateX(-75px) translateY(-2px);
-    -moz-transform: translateX(-75px) translateY(-2px);
-    -ms-transform: translateX(-75px) translateY(-2px);
-    transform: translateX(-75px) translateY(-2px); }
+    -webkit-transform: translateX(-75px) translateY(2px);
+    -moz-transform: translateX(-75px) translateY(2px);
+    -ms-transform: translateX(-75px) translateY(2px);
+    transform: translateX(-75px) translateY(2px); }
   #keyMap li:nth-child(2) {
     -webkit-transform: translateX(-37.5px) translateY(-30px) rotateZ(90deg);
     -moz-transform: translateX(-37.5px) translateY(-30px) rotateZ(90deg);
@@ -208,10 +209,10 @@ nav {
     -ms-transform: rotateZ(180deg);
     transform: rotateZ(180deg); }
   #keyMap li:nth-child(4) {
-    -webkit-transform: translateX(-36.5px) translateY(-2px) rotateZ(-90deg);
-    -moz-transform: translateX(-36.5px) translateY(-2px) rotateZ(-90deg);
-    -ms-transform: translateX(-36.5px) translateY(-2px) rotateZ(-90deg);
-    transform: translateX(-36.5px) translateY(-2px) rotateZ(-90deg); }
+    -webkit-transform: translateX(-36.5px) translateY(0px) rotateZ(-90deg);
+    -moz-transform: translateX(-36.5px) translateY(0px) rotateZ(-90deg);
+    -ms-transform: translateX(-36.5px) translateY(0px) rotateZ(-90deg);
+    transform: translateX(-36.5px) translateY(0px) rotateZ(-90deg); }
 
 #container {
   position: fixed;
@@ -271,9 +272,9 @@ nav {
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
-        -webkit-flex-direction: container;
-        -ms-flex-direction: container;
-        flex-direction: container;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
         -webkit-align-items: center;
         -ms-flex-align: center;
         align-items: center; }
@@ -284,37 +285,47 @@ nav {
           margin: 1.09375% 0 1.09375% 8.75%; }
           #container #cube .face.photos .photo img {
             width: 100%; }
-      #container #cube .face.instagram {
-        /* 3x3 grid */
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-direction: container;
-        -ms-flex-direction: container;
-        flex-direction: container;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center; }
-        #container #cube .face.instagram .photo {
-          width: 25%;
-          cursor: pointer;
-          float: left;
-          margin-left: 6.25%; }
-          #container #cube .face.instagram .photo img {
-            width: 100%; }
-          #container #cube .face.instagram .photo h3 {
-            font-size: 12px;
-            margin-top: 0; }
-            #container #cube .face.instagram .photo h3 a {
+      #container #cube .face.instagram .photo {
+        width: 92%;
+        height: 92%;
+        margin-top: 4%;
+        margin-left: 4%; }
+        #container #cube .face.instagram .photo img {
+          width: 100%; }
+        #container #cube .face.instagram .photo:hover #bg-fill {
+          opacity: 1; }
+        #container #cube .face.instagram .photo #bg-fill {
+          -webkit-transition: opacity 0.3s ease-in-out;
+          -moz-transition: opacity 0.3s ease-in-out;
+          -ms-transition: opacity 0.3s ease-in-out;
+          -o-transition: opacity 0.3s ease-in-out;
+          transition: opacity 0.3s ease-in-out;
+          display: -webkit-box;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-align-items: center;
+          -ms-flex-align: center;
+          align-items: center;
+          -webkit-justify-content: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(30, 30, 30, 0.33);
+          opacity: 0; }
+          #container #cube .face.instagram .photo #bg-fill a {
+            font-size: 50px; }
+            #container #cube .face.instagram .photo #bg-fill a:link, #container #cube .face.instagram .photo #bg-fill a:visited {
+              color: #FFF;
               text-decoration: none; }
-            #container #cube .face.instagram .photo h3 a:link {
-              color: black; }
-            #container #cube .face.instagram .photo h3 a:visited {
-              color: black; }
-            #container #cube .face.instagram .photo h3 a:hover {
-              color: blue; }
       #container #cube .face.youtube {
         display: -webkit-box;
         display: -moz-box;
@@ -331,15 +342,16 @@ nav {
         -ms-flex-pack: center;
         justify-content: center; }
         #container #cube .face.youtube .video {
-          width: 70%; }
+          width: 90%;
+          color: #FFF; }
           #container #cube .face.youtube .video iframe {
             width: 100%; }
       #container #cube .face.solution .solution-item {
-        cursor: e-resize;
-        width: 95%;
-        height: 95%;
-        margin-top: 2.5%;
-        margin-left: 2.5%; }
+        cursor: pointer;
+        width: 92%;
+        height: 92%;
+        margin-top: 4%;
+        margin-left: 4%; }
         #container #cube .face.solution .solution-item .solution-slideshow {
           padding: 0;
           position: relative;
@@ -403,9 +415,6 @@ html[data-useragent*='MSIE 10.0'] nav a {
 html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
   display: block; }
 
-html[data-useragent*='MSIE 10.0'] #container #cube .face.instagram {
-  display: block; }
-
 @media screen and (max-width: 480px) {
   html, body {
     width: 100vw;
@@ -427,21 +436,6 @@ html[data-useragent*='MSIE 10.0'] #container #cube .face.instagram {
       margin-bottom: 10px;
       max-width: 100%;
       float: left; }
-  #enlarge {
-    left: 50vw;
-    top: 50vh;
-    width: 306px;
-    height: 306px;
-    margin-left: -153px;
-    margin-top: -153px; }
-    #enlarge .close {
-      width: 50px;
-      height: 50px;
-      right: -15px;
-      top: -50px; }
-    #enlarge #caption {
-      font-size: 12px;
-      top: 316px; }
   #note {
     display: none; }
   #keyMap {
@@ -456,10 +450,6 @@ html[data-useragent*='MSIE 10.0'] #container #cube .face.instagram {
       height: 90vw; }
       #container #cube .face {
         /* geometry definitions */ }
-        #container #cube .face.instagram .photo {
-          margin-top: 5px; }
-          #container #cube .face.instagram .photo h3 {
-            display: none; }
         #container #cube .face .lock {
           position: absolute;
           right: 3px;

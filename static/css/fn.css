@@ -20,24 +20,24 @@
 
 .back {
   background-color: #006666; }
-  .back:hover {
+  .back:hover span {
     border-color: #006666;
     color: #006666; }
 
 .left {
   background-color: #FF99CC; }
-  .left:hover {
+  .left:hover span {
     border-color: #FF99CC;
     color: #FF99CC; }
 
 .top {
   background-color: #000000; }
-  .top:hover {
+  .top:hover span {
     border-color: #000000;
     color: #000000; }
 
 .bottom {
   background-color: #FFCC00; }
-  .bottom:hover {
+  .bottom:hover span {
     border-color: #FFCC00;
     color: #FFCC00; }

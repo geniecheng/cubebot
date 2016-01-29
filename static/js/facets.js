@@ -2,6 +2,7 @@ var transEndStr = 'webkitTransitionEnd transitionend msTransitionEnd oTransition
 var URL;
 
 URL = 'https://morning-thicket-7130.herokuapp.com/api';
+//URL = 'http://localhost:8000/api';
 
 var BaseCollection = Backbone.Collection.extend({
 	initialize: function (opts){
@@ -27,31 +28,10 @@ var BaseCollection = Backbone.Collection.extend({
 	Instagram face
 */
 var Gram = Backbone.Model.extend({
-	truncate:20,
 	template: _.template(
-		"<img class='pic' src='<%= o.get('photo') %>' data-caption='<a href=\"<%= o.get(\"url\") %>\" target=\"_blank\"><%= o.user() %>'></a>"+
-		"<h3><a href='<%= o.get('url') %>' target='_blank'>"+
-		"<%= o.user() %>"+
-		//"<%= o.get_caption() %>"+
-		"</a></h3>"
-	),
-
-	intitialze: function (){
-		_.bindAll(this,'get_caption','user');
-	},
-
-	user: function (){
-		return '@' + this.get('user');
-	},
-
-	get_caption: function (){
-		var c = this.get('caption');
-
-		if(typeof c !== "undefined" && c.length > this.truncate)
-			c = c.slice(0,this.truncate) + '...';
-
-		return c;
-	}
+		"<img class='pic' src='<%= o.get('photo') %>'>"+
+		"<div id='bg-fill'><a href='https://www.instagram.com/cubebotofficial/' target='_blank'>@cubebotofficial</a></div>"
+	)
 });
 
 var Grams = BaseCollection.extend({
@@ -74,41 +54,12 @@ var InstagramView = Backbone.View.extend({
 var Instagram = Backbone.View.extend({
 	tagName:'li',
 	className:'instagram',
-	limit:9,
+	limit:1,
 	initialize: function (opts){
-		_.bindAll(this,'enlarge','close');
-
 		this.items = new Grams({limit:this.limit});
 		this.items.fetch();
 
-		this.$viewport = $('#enlarge');
-
-		this.$viewport.find('.close').on('click', this.close);
-		$(document).on('keyup', this.close);
-
-		this.$viewport.on(transEndStr, _.bind(function (){
-			if(!this.$viewport.hasClass('open'))
-				this.$viewport.css('z-index',-1);
-		},this));
-
 		this.listenTo(this.items,'sync',this.render);
-		this.$el.on('click','img.pic',this.enlarge);
-	},
-
-	close: function (evt){
-		if((evt.type == 'keyup' && evt.keyCode == 27) || evt.type == 'click')
-			this.$viewport.removeClass('open');
-	},
-
-	enlarge: function (evt){
-		this.$viewport.addClass('open').css({
-			zIndex:100,
-			'background-image':'url('+$(evt.target).prop('src')+')'
-		});
-
-		this.$viewport.find('#caption').html(
-			$(evt.target).data('caption') || ''
-		);
 	},
 
 	render: function (){
@@ -444,7 +395,7 @@ $(function (){
 	Cube = Backbone.View.extend({
 		tagName:'ul',
 		id:'cube',
-		navTemplate:_.template("<a href='#' class='face-nav <%= face %>' data-face='<%= face %>'><%= label %></a>"),
+		navTemplate:_.template("<a href='#' class='face-nav <%= face %>'><span data-face='<%= face %>'><%= label %></span></a>"),
 		initialize: function (){
 			/* get cube configuration from backend */
 			this.config = new Configuration();
@@ -471,7 +422,7 @@ $(function (){
 
 				this.$el.append(ele);
 
-				this.$nav.append(
+				this.$nav.prepend(
 					this.navTemplate({face:face,label:labels[_type]})
 				);
 			},this));

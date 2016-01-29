@@ -87,7 +87,7 @@ $link-color: black;
 .back {
     background-color:$back-face-bgcolor;
 
-    &:hover {
+    &:hover span {
         border-color:$back-face-bgcolor;
         color:$back-face-bgcolor;
     }
@@ -95,7 +95,7 @@ $link-color: black;
 .left {
     background-color:$left-face-bgcolor;
 
-    &:hover {
+    &:hover span {
         border-color:$left-face-bgcolor;
         color:$left-face-bgcolor;
     }
@@ -103,7 +103,7 @@ $link-color: black;
 .top {
     background-color:$top-face-bgcolor;
 
-    &:hover {
+    &:hover span {
         border-color:$top-face-bgcolor;
         color:$top-face-bgcolor;
     }
@@ -111,7 +111,7 @@ $link-color: black;
 .bottom {
     background-color:$bottom-face-bgcolor;
 
-    &:hover {
+    &:hover span {
         border-color:$bottom-face-bgcolor;
         color:$bottom-face-bgcolor;
     }

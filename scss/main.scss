@@ -105,17 +105,23 @@ nav {
     }
 
     a {
-        @include transition(color .15s, border-color .15s);
-
-        background-color:#FFF !important;
-        border:solid 2px #000;
-        padding: 7px 12px;
-        text-transform:uppercase;
-        text-decoration: none;
-        font-family:'arial';
-        margin-bottom:5px;
+        padding: 2px 0;
         text-align:center;
-        max-width:100px;
+        text-decoration: none;
+        background-color:transparent !important;
+
+
+        span {
+            @include transition(color .15s, border-color .15s);
+
+            display:block;
+            max-width:100px;
+            text-transform:uppercase;
+            font-family:'arial';
+            padding: 7px 12px;
+            background-color:#FFF !important;
+            border:solid 2px #000;
+        }
 
         &.yellow {
             background-color:rgb(255,242,0);
@@ -129,8 +135,10 @@ nav {
             color:#000;
         }
         &:hover {
-            color:$hover-color;
-            border-color:$hover-color;
+            span {
+                color:$hover-color;
+                border-color:$hover-color;
+            }
         }
     }
 }
@@ -165,8 +173,6 @@ $kw: 75px;
     li {
         position:absolute;
         cursor:pointer;
-        padding: 3px;
-        background-color:#FFF;
 
         &:hover {
             color:$hover-color;
@@ -174,7 +180,7 @@ $kw: 75px;
     }
 
     li:nth-child(1) {
-        @include transform(translateX(-$kw) translateY(-2px));
+        @include transform(translateX(-$kw) translateY(2px));
     }
     li:nth-child(2) {
         @include transform(translateX(-$kw/2) translateY(-$kw*0.4) rotateZ(90deg));
@@ -183,7 +189,7 @@ $kw: 75px;
         @include transform(rotateZ(180deg));
     }
     li:nth-child(4) {
-        @include transform(translateX((-$kw/2)+1px) translateY(-2px) rotateZ(-90deg));
+        @include transform(translateX((-$kw/2)+1px) translateY(0px) rotateZ(-90deg));
     }
 }
 
@@ -242,7 +248,7 @@ $kw: 75px;
                 /* 3x4 grid */
 
                 @include flexbox();
-                @include direction(container);
+                @include direction(column);
                 @include align(center);
 
                 $pw: 65%;
@@ -261,42 +267,45 @@ $kw: 75px;
             }
 
             &.instagram {
-                /* 3x3 grid */
 
-                @include flexbox();
-                @include direction(container);
-                @include align(center);
-
-                $pw: 75%;
-                $cols: 3;
                 .photo {
-                    width:$pw/$cols;
-                    cursor:pointer;
-                    float:left;
-                    margin-left: (100-$pw)/($cols+1);
+                    width:92%;
+                    height:92%;
+                    margin-top:4%;
+                    margin-left:4%;
 
                     img {
                         width:100%;
                     }
 
-                    h3 {
-                        font-size:12px;
-                        margin-top:0;
+                    &:hover {
+                        #bg-fill {
+                            opacity:1;
+                        }
+                    }
+
+                    #bg-fill {
+                        @include transition(opacity .3s ease-in-out);
+                        @include flexbox();
+                        @include direction(column);
+                        @include align(center);
+                        @include justify(center);
+
+                        position:absolute;
+                        top:0px;
+                        left:0px;
+                        width:100%;
+                        height:100%;
+                        background-color: rgba(30,30,30,0.33);
+                        opacity:0;
 
                         a {
-                            text-decoration: none;
-                        }
+                            font-size:50px;
 
-                        a:link {
-                            color:$link-color;
-                        }
-
-                        a:visited {
-                            color:$link-color;
-                        }
-
-                        a:hover {
-                            color:$hover-color;
+                            &:link, &:visited {
+                                color:#FFF;
+                                text-decoration: none;
+                            }
                         }
                     }
                 }
@@ -309,7 +318,8 @@ $kw: 75px;
                 @include justify(center);
 
                 .video {
-                    width:70%;
+                    width:90%;
+                    color:#FFF;
 
                     iframe {
                         width:100%;
@@ -320,12 +330,12 @@ $kw: 75px;
             &.solution {
 
                 .solution-item {
-                    cursor: e-resize;
+                    cursor: pointer;
 
-                    width:95%;
-                    height:95%;
-                    margin-top:2.5%;
-                    margin-left:2.5%;
+                    width:92%;
+                    height:92%;
+                    margin-top:4%;
+                    margin-left:4%;
 
                     .solution-slideshow {
                         padding:0;
@@ -380,10 +390,6 @@ html[data-useragent*='MSIE 10.0'] {
         &.photos {
             display:block;
         }
-
-        &.instagram {
-            display:block;
-        }
     }
 }
 
@@ -416,27 +422,6 @@ html[data-useragent*='MSIE 10.0'] {
         }
     }
 
-    #enlarge {
-        left:50vw;
-        top:50vh;
-        width:306px;
-        height:306px;
-
-        margin-left:-153px;
-        margin-top:-153px;
-
-        .close {
-            width:50px;
-            height:50px;
-            right:-15px;
-            top:-50px;
-        }
-        #caption {
-            font-size:12px;
-            top:316px;
-        }
-    }
-
     #note {
         display:none;
     }
@@ -459,16 +444,6 @@ html[data-useragent*='MSIE 10.0'] {
             height:$h;
 
             .face {
-                &.instagram {
-                    .photo {
-                        margin-top:5px;
-
-                        h3 {
-                            display:none;
-                        }
-                    }
-                }
-
                 .lock {
                     position:absolute;
                     right: 3px;
