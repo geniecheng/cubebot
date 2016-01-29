@@ -269,9 +269,7 @@ var Static = Backbone.View.extend({
 
 var Photo = Backbone.Model.extend({
 	truncate:20,
-	template: _.template(
-		"<img class='pic' src='<%= o.get('photo') %>' data-caption='<%= o.get_caption() %>'>"
-	),
+	template: _.template($('#photography-template').html()),
 	initialize: function (opts){
 		_.bindAll(this,'get_caption');
 	},
@@ -291,71 +289,75 @@ var PhotoCollection = BaseCollection.extend({
 
 var PhotoView = Backbone.View.extend({
 	tagName:'div',
-	className:'photo',
+	className:'photo-item',
 	render: function (){
-		this.$el.attr('data-face',this.face);
+		this.$el.empty();
 
-		this.$el.html(this.model.template({o: this.model}));
+		var container = $("<ul class='photo-slideshow'></ul>");
+		this.$el.append(container);
+
+		_(this.model.models).each(_.bind(function (item, idx){
+			var ele = item.template({o: item});
+			container.append(ele);
+		},this));
 
 		return this;
 	}
 });
 
 var Photos = Backbone.View.extend({
-	tagName:'li',
+	tagName:'div',
 	className:'photos',
-	limit:12,
 	initialize: function (opts){
-		_.bindAll(this,'enlarge','close');
-		opts['limit'] = this.limit;
+		_.bindAll(this, 'advance');
+		opts = opts || {};
 
-		this.items = new PhotoCollection(opts)
-		this.items.fetch();
+		this.item = new PhotoCollection(opts);
 
-		this.$viewport = $('#enlarge');
+		this.anim = false;
 
-		this.$viewport.find('.close').on('click', this.close);
-		$(document).on('keyup', this.close);
+		this.$el.on('click','.photo-slideshow li',this.advance);
 
-		this.$viewport.on(transEndStr, _.bind(function (){
-			if(!this.$viewport.hasClass('open'))
-				this.$viewport.css('z-index',-1);
-		},this));
-
-		this.listenTo(this.items,'sync',this.render);
-		this.$el.on('click','img.pic',this.enlarge);
+		this.item.fetch();
+		this.listenTo(this.item,'sync',this.render);
 	},
 
-	close: function (evt){
-		if((evt.type == 'keyup' && evt.keyCode == 27) || evt.type == 'click')
-			this.$viewport.removeClass('open');
-	},
+	advance: function (evt){
+		if(this.anim)return;
+		this.anim = true;
 
-	enlarge: function (evt){
-		this.$viewport.addClass('open').css({
-			zIndex:100,
-			'background-image':'url('+$(evt.target).prop('src')+')'
-		});
+		var idx = $(evt.target).index();
+		var images = this.$el.find('.photo-slideshow li');
 
-		this.$viewport.find('#caption').html(
-			$(evt.target).data('caption') || ''
-		);
+		images.eq(idx).css('z-index',95).addClass('soon-inactive');
+		images.eq( (idx + 1) % images.length)
+			  .css('z-index',99)
+			  .addClass('active');
+
+		var self = this;
+		setTimeout(function (){
+			self.$el.find('.soon-inactive').each(function (){
+				$(this).removeClass('soon-inactive active')
+					   .css('z-index',-1);
+			});
+			self.anim = false;
+		},350);
+
 	},
 
 	render: function (){
 		this.$el.empty();
+		if(this.item.models.length < 2) return this;
+
 		this.$el.attr('data-face',this.face);
 
-		var container = $("<div class='photo-container clearfix'></div>");
-		this.$el.append(container);
+		var view = new PhotoView({model: this.item});
+		this.$el.html(view.render().$el);
 
-		_(this.items.models).each(_.bind(function (item, idx){
-			var ele = new InstagramView({model:item});
-
-			var $ele = ele.render().$el;
-
-			container.append($ele);
-		},this));
+		this.$el.find('.photo-slideshow li')
+			.first()
+			.addClass('active')
+			.css('z-index',1);
 
 		var lock = $("<img class='lock' src='/img/rotate.svg' data-face='"+this.face+"'>");
 		this.$el.append(lock);

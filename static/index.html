@@ -33,6 +33,11 @@
 		</ul>
 	</script>
 
+	<script type='text/template' id='photography-template'>
+		<li style="background-image: url('<%= o.get('photo') %>');" title='Click to advance'>
+			<div class='caption'><%= o.get('caption') %></div>
+		</li>
+	</script>
 
 	<script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
 	<script type='text/javascript' src='js/underscore-min.js'></script>
