@@ -1,0 +1,101 @@
+@import 'fn.scss';
+
+/* global style variables */
+$w:95vh;
+$h:$w;
+
+/* TODO: colors defined here */
+$front-face-bgcolor:#CC3300;
+$right-face-bgcolor:#0033CC;
+$back-face-bgcolor:#006666;
+$left-face-bgcolor:#FF99CC;
+$top-face-bgcolor:#c0c0c0;
+$bottom-face-bgcolor:#FFCC00;
+
+$hover-color: blue;
+$link-color: black;
+
+$graphik: 'Graphik', sans-serif;
+$swiss: 'Swiss', sans-serif;
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.front {
+    background-color:$front-face-bgcolor;
+
+    &:hover {
+        border-color:$front-face-bgcolor;
+        color:$front-face-bgcolor;
+    }
+}
+.right {
+    background-color:$right-face-bgcolor;
+
+    &:hover {
+        border-color:$right-face-bgcolor;
+        color:$right-face-bgcolor;
+    }
+}
+.back {
+    background-color:$back-face-bgcolor;
+
+    &:hover span {
+        border-color:$back-face-bgcolor;
+        color:$back-face-bgcolor;
+    }
+}
+.left {
+    background-color:$left-face-bgcolor;
+
+    &:hover span {
+        border-color:$left-face-bgcolor;
+        color:$left-face-bgcolor;
+    }
+}
+.top {
+    background-color:$top-face-bgcolor;
+
+    &:hover span {
+        border-color:$top-face-bgcolor;
+        color:$top-face-bgcolor;
+    }
+}
+.bottom {
+    background-color:$bottom-face-bgcolor;
+
+    &:hover span {
+        border-color:$bottom-face-bgcolor;
+        color:$bottom-face-bgcolor;
+    }
+}
+
+
+@mixin faces($w){
+    &.front {
+        @include transform(translateZ($w/2));
+    }
+    &.right {
+        @include transform(translateX($w/2) rotateY(90deg));
+    }
+
+    &.back {
+        @include transform(translateZ(-$w/2) rotateY(180deg));
+    }
+
+    &.left {
+        @include transform(translateX(-$w/2) rotateY(-90deg));
+    }
+
+    &.top {
+        @include transform(translateY(-$w/2) rotateX(90deg));
+    }
+
+    &.bottom {
+        @include transform(translateY($w/2) rotateX(-90deg));
+    }
+}

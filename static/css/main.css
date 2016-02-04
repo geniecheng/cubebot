@@ -1,6 +1,6 @@
+/* flexbox specs */
 /* global style variables */
 /* TODO: colors defined here */
-/* flexbox specs */
 .clearfix:after {
   content: "";
   display: table;
@@ -31,10 +31,10 @@
     color: #FF99CC; }
 
 .top {
-  background-color: #000000; }
+  background-color: #c0c0c0; }
   .top:hover span {
-    border-color: #000000;
-    color: #000000; }
+    border-color: #c0c0c0;
+    color: #c0c0c0; }
 
 .bottom {
   background-color: #FFCC00; }
@@ -290,47 +290,37 @@ nav {
             opacity: 0; }
             #container #cube .face.photos .photo-item .photo-slideshow li.active {
               opacity: 1; }
-      #container #cube .face.instagram .photo {
-        width: 92%;
-        height: 92%;
-        margin-top: 4%;
-        margin-left: 4%; }
-        #container #cube .face.instagram .photo img {
-          width: 100%; }
-        #container #cube .face.instagram .photo:hover #bg-fill {
-          opacity: 1; }
-        #container #cube .face.instagram .photo #bg-fill {
-          -webkit-transition: opacity 0.3s ease-in-out;
-          -moz-transition: opacity 0.3s ease-in-out;
-          -ms-transition: opacity 0.3s ease-in-out;
-          -o-transition: opacity 0.3s ease-in-out;
-          transition: opacity 0.3s ease-in-out;
-          display: -webkit-box;
-          display: -moz-box;
-          display: -ms-flexbox;
-          display: -webkit-flex;
-          display: flex;
-          -webkit-flex-direction: column;
-          -ms-flex-direction: column;
-          flex-direction: column;
-          -webkit-align-items: center;
-          -ms-flex-align: center;
-          align-items: center;
-          -webkit-justify-content: center;
-          -ms-flex-pack: center;
-          justify-content: center;
-          position: absolute;
-          top: 0px;
-          left: 0px;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(30, 30, 30, 0.33);
-          opacity: 0; }
-          #container #cube .face.instagram .photo #bg-fill a {
-            font-size: 50px; }
-            #container #cube .face.instagram .photo #bg-fill a:link, #container #cube .face.instagram .photo #bg-fill a:visited {
-              color: #FFF;
+      #container #cube .face.instagram {
+        /* 2x2 grid */
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: container;
+        -ms-flex-direction: container;
+        flex-direction: container;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        #container #cube .face.instagram .photo {
+          width: 42.5%;
+          cursor: pointer;
+          float: left;
+          margin-left: 5%; }
+          #container #cube .face.instagram .photo img {
+            width: 100%; }
+          #container #cube .face.instagram .photo h3 {
+            font-size: 12px;
+            margin-top: 0; }
+            #container #cube .face.instagram .photo h3 a {
               text-decoration: none; }
+            #container #cube .face.instagram .photo h3 a:link {
+              color: black; }
+            #container #cube .face.instagram .photo h3 a:visited {
+              color: black; }
+            #container #cube .face.instagram .photo h3 a:hover {
+              color: blue; }
       #container #cube .face.youtube {
         display: -webkit-box;
         display: -moz-box;

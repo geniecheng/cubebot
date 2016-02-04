@@ -1,0 +1,43 @@
+/* flexbox specs */
+/* global style variables */
+/* TODO: colors defined here */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.front {
+  background-color: #CC3300; }
+  .front:hover {
+    border-color: #CC3300;
+    color: #CC3300; }
+
+.right {
+  background-color: #0033CC; }
+  .right:hover {
+    border-color: #0033CC;
+    color: #0033CC; }
+
+.back {
+  background-color: #006666; }
+  .back:hover span {
+    border-color: #006666;
+    color: #006666; }
+
+.left {
+  background-color: #FF99CC; }
+  .left:hover span {
+    border-color: #FF99CC;
+    color: #FF99CC; }
+
+.top {
+  background-color: #c0c0c0; }
+  .top:hover span {
+    border-color: #c0c0c0;
+    color: #c0c0c0; }
+
+.bottom {
+  background-color: #FFCC00; }
+  .bottom:hover span {
+    border-color: #FFCC00;
+    color: #FFCC00; }
