@@ -1,8 +1,17 @@
 /* flexbox specs */
 @font-face {
   font-family: "Graphik";
-  src: url("../fonts/Graphik-Regular-Web.eot?") format("eot"), url("../fonts/Graphik-Regular-Web.woff2") format("woff2"), url("../fonts/Graphik-Regular-Web.woff") format("woff"), url("../fonts/Graphik-Regular-Web.ttf") format("truetype"), url("../fonts/Graphik-Regular-Web.svg#Graphik") format("svg"); }
+  src: url("../fonts/Graphik-Regular-Web.eot?") format("eot"), url("../fonts/Graphik-Regular-Web.woff") format("woff"), url("../fonts/Graphik-Regular-Web.ttf") format("truetype"), url("../fonts/Graphik-Regular-Web.svg#Graphik") format("svg"); }
 
 @font-face {
   font-family: "Swiss";
-  src: url("../fonts/swiss_721_bold_extended-webfont.eot?") format("eot"), url("../fonts/swiss_721_bold_extended-webfont.woff2") format("woff2"), url("../fonts/swiss_721_bold_extended-webfont.woff") format("woff"), url("../fonts/swiss_721_bold_extended-webfont.ttf") format("truetype"), url("../fonts/swiss_721_bold_extended-webfont.svg#Swiss") format("svg"); }
+  src: url("../fonts/swiss_721_bold_extended-webfont.eot?") format("eot"), url("../fonts/swiss_721_bold_extended-webfont.woff") format("woff"), url("../fonts/swiss_721_bold_extended-webfont.ttf") format("truetype"), url("../fonts/swiss_721_bold_extended-webfont.svg#Swiss") format("svg"); }
+
+@font-face {
+  font-family: "Goff";
+  src: url("../fonts/goff-black-webfont.eot?") format("eot"), url("../fonts/goff-black-webfont.woff") format("woff"), url("../fonts/goff-black-webfont.ttf") format("truetype"), url("../fonts/goff-black-webfont.svg#Goff") format("svg"); }
+
+@font-face {
+  font-family: "Goff";
+  font-weight: bold;
+  src: url("../fonts/goff-bold-webfont.eot?") format("eot"), url("../fonts/goff-bold-webfont.woff") format("woff"), url("../fonts/goff-bold-webfont.ttf") format("truetype"), url("../fonts/goff-bold-webfont.svg#Goff") format("svg"); }
