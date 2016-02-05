@@ -29,7 +29,9 @@
 	<script type='text/template' id='solution-template'>
 		<ul class='solution-slideshow'>
 			<% _.each(o.get('media'), function (m){ %>
-				<li style="background-image: url('<%= m.photo %>');" title='Click to advance'></li>
+				<li style="background-image: url('<%= m.photo %>');" title='Click to advance'>
+					<div class='caption'><%= m.caption %></div>
+				</li>
 			<% }); %>
 		</ul>
 	</script>
@@ -54,7 +56,7 @@
 	</nav>
 	</a>
 
-	<div id='note'>To navigate:<BR> scroll, use arrow keys or the navigation below</div>
+	<div id='note'>Or scroll or use arrow keys.</div>
 	<ul id='keyMap'>
 		<li><</li>
 		<li><</li>
@@ -71,5 +73,6 @@
 	</div>
 
 	<img src='/img/CubebotLogo.png' id='logo'>
+	<div id='credits'>Graphic Design by Mary Voorhees-Meehan. Programmed by Mark Beasley. Goff Typeface by Bryce Wilner.</div>
 </body>
 </html>

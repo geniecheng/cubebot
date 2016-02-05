@@ -6,8 +6,14 @@ $h:$w;
 
 /* TODO: colors defined here */
 $front-face-bgcolor:#CC3300;
+$front-face-svg:#FFF;
+
 $right-face-bgcolor:#0033CC;
+$right-face-svg:#FFF;
+
 $back-face-bgcolor:#006666;
+$back-face-svg:#FFF;
+
 $left-face-bgcolor:#FF99CC;
 $top-face-bgcolor:#c0c0c0;
 $bottom-face-bgcolor:#FFCC00;
@@ -17,6 +23,7 @@ $link-color: black;
 
 $graphik: 'Graphik', sans-serif;
 $swiss: 'Swiss', sans-serif;
+$goff: 'Goff';
 
 .clearfix:after {
   content: "";
@@ -24,11 +31,24 @@ $swiss: 'Swiss', sans-serif;
   clear: both;
 }
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
 
 .front {
     background-color:$front-face-bgcolor;
 
-    &:hover {
+    svg path {
+        fill:$front-face-svg
+    }
+
+    &:hover span {
         border-color:$front-face-bgcolor;
         color:$front-face-bgcolor;
     }
@@ -36,13 +56,22 @@ $swiss: 'Swiss', sans-serif;
 .right {
     background-color:$right-face-bgcolor;
 
-    &:hover {
+    svg path {
+        fill:$right-face-svg
+    }
+
+    &:hover span {
         border-color:$right-face-bgcolor;
         color:$right-face-bgcolor;
     }
 }
 .back {
     background-color:$back-face-bgcolor;
+
+    svg path {
+        fill:$back-face-svg
+    }
+
 
     &:hover span {
         border-color:$back-face-bgcolor;

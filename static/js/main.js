@@ -70,7 +70,12 @@ function orientCube(evt){
 	if(note) $('#note').addClass('hidden');
 
 	keyed = true;
-	var face = $(evt.target).data('face');
+	var face;
+
+	if(!$(evt.target).data('face'))
+		face = $(evt.target).parents('div.lock').data('face');
+	else
+		face = $(evt.target).data('face');
 
 	/*
 		reorient faces to within one revolution
@@ -227,7 +232,7 @@ $(function (){
 
 	if(!isMobile()){
 		/* face focusing utils */
-		$(document).on('click','img.lock',orientCube)
+		$(document).on('click','.lock',orientCube)
 				   .on('click','.face-nav',orientCube)
 				   .on('scroll keydown',delegate);
 	}else{

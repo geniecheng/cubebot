@@ -6,20 +6,41 @@
   display: table;
   clear: both; }
 
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* non-prefixed version, currently
+                                  not supported by any browser */ }
+
 .front {
   background-color: #CC3300; }
-  .front:hover {
+  .front svg path {
+    fill: #FFF; }
+  .front:hover span {
     border-color: #CC3300;
     color: #CC3300; }
 
 .right {
   background-color: #0033CC; }
-  .right:hover {
+  .right svg path {
+    fill: #FFF; }
+  .right:hover span {
     border-color: #0033CC;
     color: #0033CC; }
 
 .back {
   background-color: #006666; }
+  .back svg path {
+    fill: #FFF; }
   .back:hover span {
     border-color: #006666;
     color: #006666; }
