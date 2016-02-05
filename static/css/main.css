@@ -145,10 +145,11 @@ nav {
   right: 1%;
   top: 10%;
   padding: 10px;
-  text-align: center;
+  text-align: left;
   background-color: #FFF;
   width: 100px;
-  opacity: 0.8; }
+  opacity: 0.8;
+  font-family: "Graphik", sans-serif; }
   #note.hidden {
     opacity: 0; }
 
@@ -399,7 +400,9 @@ nav {
 #credits {
   position: fixed;
   right: 10px;
-  bottom: 10px; }
+  bottom: 5px;
+  font-size: 13px;
+  font-family: "Graphik", sans-serif; }
 
 .goff-blk {
   font-family: "Goff";
