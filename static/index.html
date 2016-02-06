@@ -1,76 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 
 
-	<title>Cubebot! by AREAWARE</title>
-	<link rel="shortcut icon" href="img/square.ico" type="image/ico" />
+    <title>Cubebot! by AREAWARE</title>
+    <link rel="shortcut icon" href="img/square.ico" type="image/ico" />
 
-	<meta name="description" content="Cubebot is a wooden toy robot inspired by Japanese Shinto Kumi-ki puzzles. Made from wood and elastic, Cubebot can be positioned to hold dozens of poses. When it's time to rest, Cubebot folds back into a perfect cube. A classic toy for all ages that will endure generations of play." />
+    <meta name="description" content="Cubebot is a wooden toy robot inspired by Japanese Shinto Kumi-ki puzzles. Made from wood and elastic, Cubebot can be positioned to hold dozens of poses. When it's time to rest, Cubebot folds back into a perfect cube. A classic toy for all ages that will endure generations of play." />
 
-	<!-- Twitter Card data -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="@Areaware">
-	<meta name="twitter:title" content="Cubebot! by AREAWARE">
-	<meta name="twitter:description" content="Cubebot is a wooden toy robot inspired by Japanese Shinto Kumi-ki puzzles. Made from wood and elastic, Cubebot can be positioned to hold dozens of poses. When it's time to rest, Cubebot folds back into a perfect cube. A classic toy for all ages that will endure generations of play.">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Areaware">
+    <meta name="twitter:title" content="Cubebot! by AREAWARE">
+    <meta name="twitter:description" content="Cubebot is a wooden toy robot inspired by Japanese Shinto Kumi-ki puzzles. Made from wood and elastic, Cubebot can be positioned to hold dozens of poses. When it's time to rest, Cubebot folds back into a perfect cube. A classic toy for all ages that will endure generations of play.">
 
-	<!-- Open Graph data -->
-	<meta property="og:title" content="Cubebot! by AREAWARE" />
-	<meta property="og:type" content="article" />
-	<meta property="og:url" content="http://cubebot.com/" />
-	<meta property="og:description" content="Cubebot is a wooden toy robot inspired by Japanese Shinto Kumi-ki puzzles. Made from wood and elastic, Cubebot can be positioned to hold dozens of poses. When it's time to rest, Cubebot folds back into a perfect cube. A classic toy for all ages that will endure generations of play." />
-	<meta property="og:site_name" content="Cubebot! by AREAWARE" />
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Cubebot! by AREAWARE" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://cubebot.com/" />
+    <meta property="og:description" content="Cubebot is a wooden toy robot inspired by Japanese Shinto Kumi-ki puzzles. Made from wood and elastic, Cubebot can be positioned to hold dozens of poses. When it's time to rest, Cubebot folds back into a perfect cube. A classic toy for all ages that will endure generations of play." />
+    <meta property="og:site_name" content="Cubebot! by AREAWARE" />
 
-	<link rel='stylesheet' type='text/css' href='css/fonts.css' charset='utf8'>
-	<link rel='stylesheet' type='text/css' href='css/main.css' charset='utf8'>
+    <link rel='stylesheet' type='text/css' href='css/fonts.css' charset='utf8'>
+    <link rel='stylesheet' type='text/css' href='css/main.css' charset='utf8'>
 
-	<script type='text/template' id='solution-template'>
-		<ul class='solution-slideshow'>
-			<% _.each(o.get('media'), function (m){ %>
-				<li style="background-image: url('<%= m.photo %>');" title='Click to advance'>
-					<div class='caption'><%= m.caption %></div>
-				</li>
-			<% }); %>
-		</ul>
-	</script>
+    <script type='text/template' id='solution-template'>
+        <ul class='solution-slideshow'>
+            <% _.each(o.get('media'), function (m){ %>
+                <li style="background-image: url('<%= m.photo %>');" title='Click to advance'>
+                    <div class='caption'><%= m.caption %></div>
+                </li>
+            <% }); %>
+        </ul>
+    </script>
 
-	<script type='text/template' id='photography-template'>
-		<li style="background-image: url('<%= o.get('photo') %>');" title='Click to advance'>
-			<div class='caption'><%= o.get('caption') %></div>
-		</li>
-	</script>
+    <script type='text/template' id='photography-template'>
+        <li style="background-image: url('<%= o.get('photo') %>');" title='Click to advance'>
+            <div class='caption'><%= o.get('caption') %></div>
+        </li>
+    </script>
 
-	<script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
-	<script type='text/javascript' src='js/underscore-min.js'></script>
-	<script type='text/javascript' src='js/backbone-min.js'></script>
+    <script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='js/underscore-min.js'></script>
+    <script type='text/javascript' src='js/backbone-min.js'></script>
 
-	<script type='text/javascript' src="js/facets.js"></script>
-	<script type='text/javascript' src="js/main.js"></script>
+    <script type='text/javascript' src="js/facets.js"></script>
+    <script type='text/javascript' src="js/main.js"></script>
 </head>
 <body>
-	<nav>
-	</nav>
-	</a>
+    <nav>
+    </nav>
+    </a>
 
-	<div id='note'>Scroll or use arrow keys.</div>
-	<ul id='keyMap'>
-		<li><</li>
-		<li><</li>
-		<li><</li>
-		<li><</li>
-	</ul>
-	<div id='container'>
-		<div id='intermediary'>
-		</div>
-	</div>
-	<div id='enlarge'>
-		<div class='close'></div>
-		<div id='caption'></div>
-	</div>
+    <div id='note'>Scroll or use arrow keys.</div>
+    <ul id='keyMap'>
+        <li><</li>
+        <li><</li>
+        <li><</li>
+        <li><</li>
+    </ul>
+    <div id='container'>
+        <div id='intermediary'>
+        </div>
+    </div>
+    <div id='enlarge'>
+        <div class='close'></div>
+        <div id='caption'></div>
+    </div>
 
-	<img src='/img/CubebotLogo.svg' id='logo'>
-	<div id='credits'>Graphic Design by Mary Voorhees-Meehan. Programmed by Mark Beasley. Goff Typeface by Bryce Wilner.</div>
+    <img src='/img/CubebotLogo.svg' id='logo'>
+    <div id='credits'>Graphic Design by Mary Voorhees-Meehan. Programmed by Mark Beasley. Goff Typeface by Bryce Wilner.</div>
 </body>
 </html>
