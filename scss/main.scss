@@ -396,7 +396,7 @@ html[data-useragent*='MSIE 10.0'] {
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
     html,body {
         width:100vw;
         height:100vh;
@@ -417,10 +417,11 @@ html[data-useragent*='MSIE 10.0'] {
 
         a {
             font-size:12px;
-            margin-left:5px;
-            margin-bottom:5px;
+            margin-left:10px;
+            margin-bottom:20px;
             max-width:100%;
             float:left;
+            padding:0;
 
             span {
                 padding: 17px 22px;
@@ -481,7 +482,8 @@ html[data-useragent*='MSIE 10.0'] {
 
                         p {
                             font-size:12px;
-                            line-height:15px;
+                            line-height:13px;
+                            margin-top:5px;
                         }
                     }
                 }
@@ -498,14 +500,37 @@ html[data-useragent*='MSIE 10.0'] {
 }
 
 @media screen and (max-width: 320px) {
+
+    #container #cube .face.photos .photo-item .photo-slideshow li {
+        .caption {
+            width:95%;
+            padding:5px 0 0 10px;
+
+            h1 {
+                font-size: 13px;
+            }
+
+            p {
+                margin-top:0px;
+                font-size:11px;
+            }
+        }
+    }
+
     nav {
+        top:5px;
+
         hr {
-            height:15px;
+            height:45px;
         }
 
         a {
             font-size:10px;
-            padding:7px 12px;
+            margin-left:5px;
         }
+    }
+
+    #credits {
+        font-size:12px;
     }
 }

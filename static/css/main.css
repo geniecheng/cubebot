@@ -419,7 +419,7 @@ html[data-useragent*='MSIE 10.0'] nav a {
 html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
   display: block; }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   html, body {
     width: 100vw;
     height: 100vh; }
@@ -435,10 +435,11 @@ html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
       margin: 2px 10px 0 10px; }
     nav a {
       font-size: 12px;
-      margin-left: 5px;
-      margin-bottom: 5px;
+      margin-left: 10px;
+      margin-bottom: 20px;
       max-width: 100%;
-      float: left; }
+      float: left;
+      padding: 0; }
       nav a span {
         padding: 17px 22px; }
   #note {
@@ -473,7 +474,8 @@ html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
             font-size: 16px; }
           #container #cube .face.photos .photo-item .photo-slideshow li .caption p {
             font-size: 12px;
-            line-height: 15px; }
+            line-height: 13px;
+            margin-top: 5px; }
         #container #cube .face .lock {
           display: none; }
         #container #cube .face.front {
@@ -508,8 +510,20 @@ html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
           transform: translateY(45vw) rotateX(-90deg); } }
 
 @media screen and (max-width: 320px) {
-  nav hr {
-    height: 15px; }
-  nav a {
-    font-size: 10px;
-    padding: 7px 12px; } }
+  #container #cube .face.photos .photo-item .photo-slideshow li .caption {
+    width: 95%;
+    padding: 5px 0 0 10px; }
+    #container #cube .face.photos .photo-item .photo-slideshow li .caption h1 {
+      font-size: 13px; }
+    #container #cube .face.photos .photo-item .photo-slideshow li .caption p {
+      margin-top: 0px;
+      font-size: 11px; }
+  nav {
+    top: 5px; }
+    nav hr {
+      height: 45px; }
+    nav a {
+      font-size: 10px;
+      margin-left: 5px; }
+  #credits {
+    font-size: 12px; } }
