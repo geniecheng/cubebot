@@ -40,7 +40,7 @@ nav {
 
     hr {
         margin: 5px 0 10px 0;
-        border-color:blue;
+        border-color:black;
     }
 
     a {
@@ -49,9 +49,8 @@ nav {
         text-decoration: none;
         background-color:transparent !important;
 
-
         span {
-            @include transition(color .3s, border-color .3s);
+            @include transition(color .3s);
 
             display:block;
             max-width:100px;
@@ -59,8 +58,6 @@ nav {
             font-family: $graphik;
             padding: 7px 12px;
             background-color:#FFF !important;
-            border:solid 2px #000;
-            line-height:20px;
         }
 
         &.yellow {
@@ -102,7 +99,7 @@ nav {
     }
 }
 
-$kw: 75px;
+$kw: 60px;
 #keyMap {
     position:fixed;
     right:3%;
@@ -110,9 +107,13 @@ $kw: 75px;
     list-style-type:none;
     z-index:99;
 
+    @extend .noselect;
+
     li {
         position:absolute;
         cursor:pointer;
+        padding:3px;
+        font-size:20px;
 
         &:hover {
             color:$hover-color;
@@ -123,13 +124,13 @@ $kw: 75px;
         @include transform(translateX(-$kw) translateY(2px));
     }
     li:nth-child(2) {
-        @include transform(translateX(-$kw/2) translateY(-$kw*0.4) rotateZ(90deg));
+        @include transform(translateX(-$kw/2) translateY(-$kw*0.25) rotateZ(90deg));
     }
     li:nth-child(3) {
         @include transform(rotateZ(180deg));
     }
     li:nth-child(4) {
-        @include transform(translateX((-$kw/2)+1px) translateY(0px) rotateZ(-90deg));
+        @include transform(translateX((-$kw/2)+1px) translateY($kw*0.25) rotateZ(-90deg));
     }
 }
 
@@ -187,7 +188,6 @@ $kw: 75px;
             &.photos {
 
                 .photo-item {
-                    cursor: pointer;
 
                     width:92%;
                     height:92%;
@@ -213,6 +213,11 @@ $kw: 75px;
 
                             &.active {
                                 opacity:1;
+                            }
+
+                            &:not(:first-child) .caption p{
+                                letter-spacing: 2px;
+                                word-spacing: -3px;
                             }
 
                             .caption {
@@ -299,8 +304,6 @@ $kw: 75px;
             &.solution {
 
                 .solution-item {
-                    cursor: pointer;
-
                     width:92%;
                     height:92%;
                     margin-top:4%;
@@ -345,7 +348,7 @@ $kw: 75px;
                 position:absolute;
                 right: 10px;
                 top:10px;
-                width:25px;
+                width:20px;
                 cursor:pointer;
                 z-index:100;
             }

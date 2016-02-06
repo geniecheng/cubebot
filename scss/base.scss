@@ -5,7 +5,7 @@ $w:95vh;
 $h:$w;
 
 /* TODO: colors defined here */
-$front-face-bgcolor:#CC3300;
+$front-face-bgcolor:#ff0000;
 $front-face-svg:#FFF;
 
 $right-face-bgcolor:#0033CC;
@@ -15,7 +15,9 @@ $back-face-bgcolor:#006666;
 $back-face-svg:#FFF;
 
 $left-face-bgcolor:#FF99CC;
-$top-face-bgcolor:#c0c0c0;
+$top-face-bgcolor:#000;
+$top-face-svg:#FFF;
+
 $bottom-face-bgcolor:#FFCC00;
 
 $hover-color: blue;
@@ -49,7 +51,6 @@ $goff: 'Goff';
     }
 
     &:hover span {
-        border-color:$front-face-bgcolor;
         color:$front-face-bgcolor;
     }
 }
@@ -61,7 +62,6 @@ $goff: 'Goff';
     }
 
     &:hover span {
-        border-color:$right-face-bgcolor;
         color:$right-face-bgcolor;
     }
 }
@@ -72,9 +72,7 @@ $goff: 'Goff';
         fill:$back-face-svg
     }
 
-
     &:hover span {
-        border-color:$back-face-bgcolor;
         color:$back-face-bgcolor;
     }
 }
@@ -82,23 +80,24 @@ $goff: 'Goff';
     background-color:$left-face-bgcolor;
 
     &:hover span {
-        border-color:$left-face-bgcolor;
         color:$left-face-bgcolor;
     }
 }
 .top {
     background-color:$top-face-bgcolor;
 
+    svg path {
+        fill:$top-face-svg
+    }
+
     &:hover span {
-        border-color:$top-face-bgcolor;
-        color:$top-face-bgcolor;
+        color:$top-face-svg;
     }
 }
 .bottom {
     background-color:$bottom-face-bgcolor;
 
     &:hover span {
-        border-color:$bottom-face-bgcolor;
         color:$bottom-face-bgcolor;
     }
 }

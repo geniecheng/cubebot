@@ -22,19 +22,17 @@
                                   not supported by any browser */ }
 
 .front {
-  background-color: #CC3300; }
+  background-color: #ff0000; }
   .front svg path {
     fill: #FFF; }
   .front:hover span {
-    border-color: #CC3300;
-    color: #CC3300; }
+    color: #ff0000; }
 
 .right {
   background-color: #0033CC; }
   .right svg path {
     fill: #FFF; }
   .right:hover span {
-    border-color: #0033CC;
     color: #0033CC; }
 
 .back {
@@ -42,23 +40,21 @@
   .back svg path {
     fill: #FFF; }
   .back:hover span {
-    border-color: #006666;
     color: #006666; }
 
 .left {
   background-color: #FF99CC; }
   .left:hover span {
-    border-color: #FF99CC;
     color: #FF99CC; }
 
 .top {
-  background-color: #c0c0c0; }
+  background-color: #000; }
+  .top svg path {
+    fill: #FFF; }
   .top:hover span {
-    border-color: #c0c0c0;
-    color: #c0c0c0; }
+    color: #FFF; }
 
 .bottom {
   background-color: #FFCC00; }
   .bottom:hover span {
-    border-color: #FFCC00;
     color: #FFCC00; }

@@ -1,4 +1,4 @@
-var transEndStr = 'webkitTransitionEnd transitionend msTransitionEnd oTransitionEnd';
+var transEndStr = 'transitionend msTransitionEnd oTransitionEnd';
 var URL;
 
 URL = 'https://morning-thicket-7130.herokuapp.com/api';
@@ -199,41 +199,70 @@ var MixView = Backbone.View.extend({
 var Solution = Backbone.View.extend({
 	tagName:'li',
 	className:'solution',
+	animDelay:300,
 	initialize: function (opts){
-		_.bindAll(this, 'advance');
+		_.bindAll(this, 'cursor','delegate','prev','next');
 		opts = opts || {};
 
 		this.item = new Mixes(opts);
 
 		this.anim = false;
+		this.idx = 0;
 
-		this.$el.on('click','.solution-slideshow li',this.advance);
+		this.$el.on('mousemove',_.throttle(this.cursor,50));
+		this.$el.on('mouseup','.solution-slideshow',this.delegate);
+
 
 		this.item.fetch();
 		this.listenTo(this.item,'sync',this.render);
 	},
 
-	advance: function (evt){
+	cursor: function (evt){
+		var x = evt.clientX;
+		var bb = this.el.getBoundingClientRect();
+
+		if(x - bb.left > bb.width/2)
+			this.$el.css('cursor','e-resize')
+		else
+			this.$el.css('cursor','w-resize')
+	},
+
+	delegate: function (evt){
 		if(this.anim)return;
-		this.anim = true;
 
-		var idx = $(evt.target).index();
-		var images = this.$el.find('.solution-slideshow li');
+		var bb = this.el.getBoundingClientRect();
+		this.images.eq(this.idx).css('z-index',95);
 
-		images.eq(idx).css('z-index',95).addClass('soon-inactive');
-		images.eq( (idx + 1) % images.length)
-			  .css('z-index',99)
-			  .addClass('active');
+		// click over halfway point?
+		if(evt.clientX - bb.left > bb.width/2)
+			this.next();
+		else
+			this.prev();
 
 		var self = this;
-		setTimeout(function (){
-			self.$el.find('.soon-inactive').each(function (){
-				$(this).removeClass('soon-inactive active')
-					   .css('z-index',-1);
-			});
-			self.anim = false;
-		},350);
+		this.images.eq(this.idx)
+				   .css('z-index',99)
+				   .addClass('active');
 
+		setTimeout(function (){
+			self.images.eq(self.lidx)
+					   .removeClass('active')
+					   .css('z-index',-1);
+
+			self.anim = false;
+		},this.animDelay);
+	},
+
+	prev: function (){
+		this.anim = true;
+		this.lidx = this.idx;
+		this.idx = this.idx - 1 < 0 ? this.images.length-1:this.idx - 1;
+	},
+
+	next: function (){
+		this.anim = true;
+		this.lidx = this.idx;
+		this.idx = (this.idx + 1) % this.images.length;
 	},
 
 	render: function (){
@@ -253,6 +282,9 @@ var Solution = Backbone.View.extend({
 
 		var lock = $("<div class='lock' data-face='"+this.face+"'>"+rotate_svg+"</div>");
 		this.$el.append(lock);
+
+		/* cache images*/
+		this.images = this.$el.find('.solution-slideshow li');
 
 		return this;
 	}
@@ -329,41 +361,69 @@ var PhotoView = Backbone.View.extend({
 var Photos = Backbone.View.extend({
 	tagName:'div',
 	className:'photos',
+	animDelay:300,
 	initialize: function (opts){
-		_.bindAll(this, 'advance');
+		_.bindAll(this, 'prev','next','delegate','cursor');
 		opts = opts || {};
 
 		this.item = new PhotoCollection(opts);
 
 		this.anim = false;
+		this.idx = 0;
 
-		this.$el.on('click','.photo-slideshow li',this.advance);
+		this.$el.on('mousemove',_.throttle(this.cursor,50));
+		this.$el.on('mouseup','.photo-slideshow',this.delegate);
 
 		this.item.fetch();
 		this.listenTo(this.item,'sync',this.render);
 	},
 
-	advance: function (evt){
+	cursor: function (evt){
+		var x = evt.clientX;
+		var bb = this.el.getBoundingClientRect();
+
+		if(x - bb.left > bb.width/2)
+			this.$el.css('cursor','e-resize')
+		else
+			this.$el.css('cursor','w-resize')
+	},
+
+	delegate: function (evt){
 		if(this.anim)return;
-		this.anim = true;
+		var bb = this.el.getBoundingClientRect();
 
-		var idx = $(evt.target).index();
-		var images = this.$el.find('.photo-slideshow li');
+		this.images.eq(this.idx).css('z-index',95);
 
-		images.eq(idx).css('z-index',95).addClass('soon-inactive');
-		images.eq( (idx + 1) % images.length)
-			  .css('z-index',99)
-			  .addClass('active');
+		// click over halfway point?
+		if(evt.clientX - bb.left > bb.width/2)
+			this.next();
+		else
+			this.prev();
 
 		var self = this;
-		setTimeout(function (){
-			self.$el.find('.soon-inactive').each(function (){
-				$(this).removeClass('soon-inactive active')
-					   .css('z-index',-1);
-			});
-			self.anim = false;
-		},350);
+		this.images.eq(this.idx)
+				   .css('z-index',99)
+				   .addClass('active');
 
+		setTimeout(function (){
+			self.images.eq(self.lidx)
+					   .removeClass('active')
+					   .css('z-index',-1);
+
+			self.anim = false;
+		},this.animDelay);
+	},
+
+	prev: function (){
+		this.anim = true;
+		this.lidx = this.idx;
+		this.idx = this.idx - 1 < 0 ? this.images.length-1:this.idx - 1;
+	},
+
+	next: function (){
+		this.anim = true;
+		this.lidx = this.idx;
+		this.idx = (this.idx + 1) % this.images.length;
 	},
 
 	render: function (){
@@ -382,6 +442,10 @@ var Photos = Backbone.View.extend({
 
 		var lock = $("<div class='lock' data-face='"+this.face+"'>"+rotate_svg+"</div>");
 		this.$el.append(lock);
+
+		/* cache images, boundingbox */
+		this.bb = this.el.getBoundingClientRect();
+		this.images = this.$el.find('.photo-slideshow li');
 
 		return this;
 	}
@@ -445,10 +509,15 @@ $(function (){
 
 				this.$el.append(ele);
 
-				this.$nav.prepend(
+				this.$nav.append(
 					this.navTemplate({face:face,label:labels[_type]})
 				);
 			},this));
+
+			this.$nav.append(
+				"<hr />"+
+				"<a href='http://www.areaware.com/collections/cubebot' target='_blank' class='yellow'><span>shop</span></a>"
+			);
 
 			return this;
 		}
