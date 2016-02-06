@@ -22,7 +22,7 @@ var suppress = false;
 var keyed = false;
 var ua = window.navigator.userAgent;
 var ie = (ua.indexOf('MSIE') + ua.indexOf('Triden')>-2);
-var note = true;
+
 var initial = true;
 
 var keyMap = {
@@ -66,8 +66,6 @@ function transEnd(){
 
 function orientCube(evt){
 	evt.preventDefault();
-
-	if(note) $('#note').addClass('hidden');
 
 	keyed = true;
 	var face;
@@ -124,8 +122,6 @@ function transform(o, x,y,z){
 }
 
 function delegate(evt){
-	if(note && !initial) $('#note').addClass('hidden');
-
 	switch(evt.type){
 		case 'keydown':
 		if(typeof keyMap[evt.keyCode] == "undefined") break;
@@ -224,7 +220,7 @@ $(function (){
 		$cube
 	);
 
-	$('#keyMap').on('click', function (evt){
+	$('#keyMap').on('mouseup', function (evt){
 		var idx = $(evt.target).index();
 		var fake = {type:'keydown',keyCode: 37 + idx};
 		delegate(fake);

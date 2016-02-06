@@ -234,7 +234,7 @@ var Solution = Backbone.View.extend({
 		this.images.eq(this.idx).css('z-index',95);
 
 		// click over halfway point?
-		if(evt.clientX - bb.left > bb.width/2)
+		if(evt.clientX - bb.left > bb.width/2 || isMobile())
 			this.next();
 		else
 			this.prev();
@@ -395,7 +395,7 @@ var Photos = Backbone.View.extend({
 		this.images.eq(this.idx).css('z-index',95);
 
 		// click over halfway point?
-		if(evt.clientX - bb.left > bb.width/2)
+		if(evt.clientX - bb.left > bb.width/2 || isMobile())
 			this.next();
 		else
 			this.prev();
