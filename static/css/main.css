@@ -263,8 +263,10 @@ nav {
               word-spacing: -3px; }
             #container #cube .face.photos .photo-item .photo-slideshow li .caption {
               width: 50%;
+              height: 90%;
               padding: 25px;
-              line-height: 25px; }
+              line-height: 25px;
+              overflow: auto; }
               #container #cube .face.photos .photo-item .photo-slideshow li .caption h1 {
                 font-family: "Goff";
                 font-weight: normal;
@@ -360,8 +362,8 @@ nav {
               font-size: 60px; }
       #container #cube .face .lock {
         position: absolute;
-        right: 10px;
-        top: 10px;
+        right: 1%;
+        top: 1%;
         width: 20px;
         cursor: pointer;
         z-index: 100; }
