@@ -1,4 +1,4 @@
-var transEndStr = 'transitionend msTransitionEnd oTransitionEnd';
+var transEndStr = 'webkitTransitionEnd transitionend msTransitionEnd oTransitionEnd';
 var URL;
 
 URL = 'https://morning-thicket-7130.herokuapp.com/api';
@@ -63,7 +63,6 @@ var InstagramView = Backbone.View.extend({
     tagName:'div',
     className:'photo',
     render: function (){
-        this.$el.attr('data-face',this.face);
 
         this.$el.html(this.model.template({o: this.model}));
 
@@ -84,7 +83,6 @@ var Instagram = Backbone.View.extend({
 
     render: function (){
         this.$el.empty();
-        this.$el.attr('data-face',this.face);
 
         var container = $("<div class='insta-container clearfix'></div>");
         this.$el.append(container);
@@ -149,7 +147,6 @@ var Youtube = Backbone.View.extend({
 
     render: function (){
         this.$el.empty();
-        this.$el.attr('data-face',this.face);
 
         _(this.items.models).each(_.bind(function (item, idx){
             var ele = new TubeView({model:item});
@@ -269,7 +266,6 @@ var Solution = Backbone.View.extend({
         this.$el.empty();
         if(this.item.models.length < 1) return this;
 
-        this.$el.attr('data-face',this.face);
 
         var ele = new MixView({model:this.item.models[0]});
         var $ele = ele.render().$el;
@@ -306,7 +302,6 @@ var Static = Backbone.View.extend({
         this.listenTo(this.item,'sync',this.render);
     },
     render: function (){
-        this.$el.attr('data-face',this.face);
 
         if(this.item.models.length){
             this.$el.html(this.item.models[0].get('html'))
@@ -359,7 +354,7 @@ var PhotoView = Backbone.View.extend({
 });
 
 var Photos = Backbone.View.extend({
-    tagName:'div',
+    tagName:'li',
     className:'photos',
     animDelay:300,
     initialize: function (opts){
@@ -430,7 +425,6 @@ var Photos = Backbone.View.extend({
         this.$el.empty();
         if(this.item.models.length < 2) return this;
 
-        this.$el.attr('data-face',this.face);
 
         var view = new PhotoView({model: this.item});
         this.$el.html(view.render().$el);
@@ -481,7 +475,7 @@ $(function (){
     Cube = Backbone.View.extend({
         tagName:'ul',
         id:'cube',
-        navTemplate:_.template("<a href='#' class='face-nav <%= face %>' data-face='<%= face %>'><span data-face='<%= face %>'><%= label %></span></a>"),
+        navTemplate:_.template("<a href='#<%= face %>' class='face-nav <%= face %>' data-face='<%= face %>'><span data-face='<%= face %>'><%= label %></span></a>"),
         initialize: function (){
             /* get cube configuration from backend */
             this.config = new Configuration();
@@ -504,6 +498,7 @@ $(function (){
                 obj.face = face;
 
                 var ele = obj.render().$el;
+                ele.attr('data-face', face);
                 ele.addClass(face+' face');
 
                 this.$el.append(ele);
@@ -517,6 +512,8 @@ $(function (){
                 "<hr />"+
                 "<a href='http://www.areaware.com/collections/cubebot' target='_blank' class='yellow'><span>shop</span></a>"
             );
+
+            $(document).trigger('cube-rendered');
 
             return this;
         }

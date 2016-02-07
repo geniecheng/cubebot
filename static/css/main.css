@@ -6,7 +6,7 @@
   display: table;
   clear: both; }
 
-.noselect, #keyMap, #container #cube .face.solution .solution-item .solution-slideshow li .caption {
+.noselect, #keyMap, #container #cube .face.photos .photo-item, #container #cube .face.solution .solution-item .solution-slideshow li .caption {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -63,7 +63,7 @@ html, body {
   margin: 0;
   width: 50000px;
   height: 50000px;
-  background-image: url(/img/dot.svg);
+  background-image: url(/img/dot.jpg);
   background-size: 10px 10px;
   font-family: Arial; }
 
@@ -129,12 +129,7 @@ nav {
       color: blue;
       border-color: blue; }
 
-#note {
-  -webkit-transition: opacity 0.3s ease-in-out;
-  -moz-transition: opacity 0.3s ease-in-out;
-  -ms-transition: opacity 0.3s ease-in-out;
-  -o-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
+#note, #advanced {
   position: fixed;
   right: 1%;
   top: 10%;
@@ -145,8 +140,9 @@ nav {
   opacity: 0.8;
   font-family: "Graphik", sans-serif;
   text-align: center; }
-  #note.hidden {
-    opacity: 0; }
+
+#advanced {
+  display: none; }
 
 #keyMap {
   position: fixed;
@@ -364,6 +360,9 @@ nav {
         width: 20px;
         cursor: pointer;
         z-index: 100; }
+        #container #cube .face .lock svg {
+          width: 20px;
+          height: 20px; }
       #container #cube .face.front {
         -webkit-transform: translateZ(47.5vh);
         -moz-transform: translateZ(47.5vh);

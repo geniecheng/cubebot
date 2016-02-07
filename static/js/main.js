@@ -21,6 +21,7 @@ var suppress = false;
 var keyed = false;
 var ua = window.navigator.userAgent;
 var ie = (ua.indexOf('MSIE') + ua.indexOf('Triden')>-2);
+var ieFaces = [];
 
 var initial = true;
 
@@ -48,14 +49,24 @@ var reverseRotationMap = {
     'bottom': [-270,0]
 }
 
+var z = 47.5;
 var ieCubeMap = {
-    'front': 'translateZ(50vh)',
-    'right':'rotateY(90deg) translateZ(50vh)',
-    'back':'rotateY(180deg) translateZ(50vh)',
-    'left':'rotateY(270deg) translateZ(50vh)',
-    'top':'rotateX(90deg) translateZ(50vh)',
-    'bottom':'rotateX(-90deg) translateZ(50vh)'
+    'front':'translateZ('+z+'vh)',
+    'right':'rotateY(90deg) translateZ('+z+'vh)',
+    'back':'rotateY(180deg) translateZ('+z+'vh)',
+    'left':'rotateY(270deg) translateZ('+z+'vh)',
+    'top':'rotateX(90deg) translateZ('+z+'vh)',
+    'bottom':'rotateX(-90deg) translateZ('+z+'vh)'
 }
+
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
 
 function transEnd(){
     if(ie)
@@ -92,7 +103,7 @@ function orientCube(evt){
         x = x % 360;
         y = y % 360;
     }
-    transform($cube, x,y);
+    transform(x,y);
 
     setTimeout(function (){
         if(ie)
@@ -113,7 +124,7 @@ function orientCube(evt){
             else
                 x = reverseRotationMap[face][1];
 
-            transform($cube, x,y);
+            transform(x,y);
         }
     },50);
 }
@@ -125,15 +136,15 @@ function isMobile(){
 
 // xbrowser transforms
 var locales = ['-moz-transform','-webkit-transform','transform'];
-function transform(o,x,y){
+function transform(x,y){
     if(ie){
-        o.find('.face').each(function (){
+        ieFaces.each(function (){
             var f = $(this).data('face');
             $(this).css('transform', 'perspective(3000px) rotateY('+x+'deg) rotateX('+y+'deg) ' + ieCubeMap[f]);
         });
     }else{
         _(locales).each(function (l){
-            o.css(l, 'translateZ(-45vh) rotateX('+y+'deg) rotateY('+x+'deg)');
+            $cube.css(l, 'translateZ(-45vh) rotateX('+y+'deg) rotateY('+x+'deg)');
         });
     }
 }
@@ -167,23 +178,13 @@ function delegate(evt){
             x = 90 * Math.round(x / 90);
             y = 90 * Math.round(y / 90);
 
-            transform($cube, x,y);
+            transform(x,y);
         break;
 
         case 'scroll':
             if(keyed) break;
 
-            if(!suppress){
-                var _x = ($w.scrollLeft()-w/2);
-                var _y = ($w.scrollTop()-h/2);
-
-                x +=  (_x - lDeltaX) * 0.1;
-                y +=  (_y - lDeltaY) * 0.1;
-
-                lDeltaX = _x; lDeltaY = _y;
-
-                transform($cube, x,y);
-            }else{
+            if(suppress){
                 suppress = false;
                 lDeltaX = 0;
                 lDeltaY = 0;
@@ -210,6 +211,7 @@ $.getJSON(URL+'/photography/',function (data){
 var doc = document.documentElement;
 doc.setAttribute('data-useragent', navigator.userAgent);
 
+
 $(function (){
     /* supress intial centering operation */
     setTimeout(function (){
@@ -226,14 +228,36 @@ $(function (){
     cube = new Cube();
     $cube = cube.render().$el;
 
-    if(ie)
-        $cube.find('.face').on(transEndStr, transEnd);
-    else
-        $cube.on(transEndStr, transEnd);
-
     $('#intermediary').append(
         $cube
     );
+
+    if(window.location.search.replace('?','') === 'basic'){
+        var css = document.createElement('link');
+        css.href = '/css/basic.css';
+        css.setAttribute('rel','stylesheet');
+        css.setAttribute('type','text/css');
+        document.getElementsByTagName("head")[0].appendChild(css);
+
+        $(document).on('cube-rendered', function (){
+            $cube.find('.face').each(function (){
+                var o = $(this);
+                var f = o.data('face');
+                o.before('<li><a name="'+f+'"></a></li>');
+            });
+        });
+
+        return;
+    }
+
+    $(document).on('cube-rendered',function (){
+        if(ie){
+            ieFaces = $cube.find('.face');
+            ieFaces.on('transitionend', transEnd);
+            setTimeout(function(){ transform(0,0); }, 50);
+        }else
+            $cube.on(transEndStr, transEnd);
+    });
 
     $('#keyMap').on('mouseup', function (evt){
         var idx = $(evt.target).index();
@@ -246,6 +270,26 @@ $(function (){
         $(document).on('click','.lock',orientCube)
                    .on('click','.face-nav',orientCube)
                    .on('scroll keydown',delegate);
+
+        var automate = function (){
+            window.requestAnimFrame(automate);
+            if(keyed) return;
+
+            if(!suppress){
+                var _x = ($w.scrollLeft()-w/2);
+                var _y = ($w.scrollTop()-h/2);
+
+                if(_x == lDeltaX && _y == lDeltaY) return;
+
+                x +=  (_x - lDeltaX) * 0.1;
+                y +=  (_y - lDeltaY) * 0.1;
+
+                lDeltaX = _x; lDeltaY = _y;
+
+                transform(x,y);
+            }
+        }
+        window.requestAnimFrame(automate);
     }else{
         $(document).on('click','.face-nav',orientCube);
     }

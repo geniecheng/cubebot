@@ -5,7 +5,7 @@ html,body {
 
     width:50000px;
     height:50000px;
-    background-image:url(/img/dot.svg);
+    background-image:url(/img/dot.jpg);
     background-size: 10px 10px;
 
     font-family:Arial;
@@ -81,9 +81,7 @@ nav {
     }
 }
 
-#note {
-    @include transition(opacity .3s ease-in-out);
-
+#note,#advanced {
     position:fixed;
     right:1%;
     top:10%;
@@ -94,10 +92,10 @@ nav {
     opacity:0.8;
     font-family: $graphik;
     text-align:center;
+}
 
-    &.hidden {
-        opacity:0;
-    }
+#advanced {
+    display:none;
 }
 
 $kw: 60px;
@@ -194,6 +192,8 @@ $kw: 60px;
                     height:92%;
                     margin-top:4%;
                     margin-left:4%;
+
+                    @extend .noselect;
 
                     .photo-slideshow {
                         padding:0;
@@ -352,6 +352,11 @@ $kw: 60px;
                 width:20px;
                 cursor:pointer;
                 z-index:100;
+
+                svg {
+                    width:20px;
+                    height:20px;
+                }
             }
 
             /* geometry definitions */

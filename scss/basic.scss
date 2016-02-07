@@ -1,0 +1,66 @@
+@import 'fn.scss';
+
+html,body {
+    //background-image:none;
+    width:auto;
+    height:auto;
+}
+
+#keyMap {
+    display:none;
+}
+
+#note {
+    display:none;
+}
+
+#advanced {
+    top:10px;
+    display:block;
+}
+
+.lock {
+    display:none;
+}
+
+#container {
+    position:relative;
+    margin: 0 auto;
+    width:95vh;
+    left:auto;
+    top:auto;
+    margin-top:5vh;
+    padding-bottom:5vh;
+
+    #intermediary {
+        perspective: none;
+    }
+
+    #cube {
+        @include transform(none);
+        width:auto;
+        height:auto;
+
+        .face {
+            width:95vh;
+            height:95vh;
+
+            &:not(:last-of-type) {
+                margin-bottom:5vh;
+            }
+
+            @include transform(none !important);
+            position:relative;
+
+            &.photos .photo-item{
+                margin:0;
+                padding: 4% 0 0 4%;
+            }
+
+            &.solution .solution-item {
+                margin:0;
+                padding: 4% 0 0 4%;
+            }
+        }
+    }
+}

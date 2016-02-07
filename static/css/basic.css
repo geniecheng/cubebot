@@ -1,0 +1,51 @@
+/* flexbox specs */
+html, body {
+  width: auto;
+  height: auto; }
+
+#keyMap {
+  display: none; }
+
+#note {
+  display: none; }
+
+#advanced {
+  top: 10px;
+  display: block; }
+
+.lock {
+  display: none; }
+
+#container {
+  position: relative;
+  margin: 0 auto;
+  width: 95vh;
+  left: auto;
+  top: auto;
+  margin-top: 5vh;
+  padding-bottom: 5vh; }
+  #container #intermediary {
+    perspective: none; }
+  #container #cube {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    transform: none;
+    width: auto;
+    height: auto; }
+    #container #cube .face {
+      width: 95vh;
+      height: 95vh;
+      -webkit-transform: none !important;
+      -moz-transform: none !important;
+      -ms-transform: none !important;
+      transform: none !important;
+      position: relative; }
+      #container #cube .face:not(:last-of-type) {
+        margin-bottom: 5vh; }
+      #container #cube .face.photos .photo-item {
+        margin: 0;
+        padding: 4% 0 0 4%; }
+      #container #cube .face.solution .solution-item {
+        margin: 0;
+        padding: 4% 0 0 4%; }
