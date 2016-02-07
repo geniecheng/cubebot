@@ -271,8 +271,8 @@ $(function (){
                    .on('click','.face-nav',orientCube)
                    .on('scroll keydown',delegate);
 
-        var automate = function (){
-            window.requestAnimFrame(automate);
+        var freeScroll = function (){
+            window.requestAnimFrame(freeScroll);
             if(keyed) return;
 
             if(!suppress){
@@ -289,7 +289,7 @@ $(function (){
                 transform(x,y);
             }
         }
-        window.requestAnimFrame(automate);
+        window.requestAnimFrame(freeScroll);
     }else{
         $(document).on('click','.face-nav',orientCube);
     }

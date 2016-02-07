@@ -140,6 +140,11 @@ nav {
   opacity: 0.8;
   font-family: "Graphik", sans-serif;
   text-align: center; }
+  #note a:link, #note a:visited, #advanced a:link, #advanced a:visited {
+    color: black;
+    text-decoration: none; }
+  #note a:hover, #advanced a:hover {
+    color: blue; }
 
 #advanced {
   display: none; }
