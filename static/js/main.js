@@ -15,6 +15,7 @@ var timer;
 // rotation index
 var x = 0;
 var y = 0;
+var z = 47.5;
 
 // state booleans
 var suppress = false;
@@ -49,7 +50,6 @@ var reverseRotationMap = {
     'bottom': [-270,0]
 }
 
-var z = 47.5;
 var ieCubeMap = {
     'front':'translateZ('+z+'vh)',
     'right':'rotateY(90deg) translateZ('+z+'vh)',
@@ -144,7 +144,7 @@ function transform(x,y){
         });
     }else{
         _(locales).each(function (l){
-            $cube.css(l, 'translateZ(-45vh) rotateX('+y+'deg) rotateY('+x+'deg)');
+            $cube.css(l, 'translateZ(-'+z+'vh) rotateX('+y+'deg) rotateY('+x+'deg)');
         });
     }
 }
