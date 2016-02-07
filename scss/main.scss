@@ -420,26 +420,26 @@ html[data-useragent*='MSIE 10.0'] {
     nav {
         display:block;
         left:5vw;
-        top:10px;
+        top:5px;
         width:95vw;
 
         hr {
-            height:55px;
+            height:50%;
             width:0px;
             float:left;
-            margin: 2px 10px 0 10px;
+            margin: 0px 10px 0 10px;
         }
 
         a {
             font-size:12px;
             margin-left:10px;
-            margin-bottom:20px;
+            margin-bottom:10px;
             max-width:100%;
             float:left;
             padding:0;
 
             span {
-                padding: 17px 22px;
+                padding: 15px 18px;
             }
         }
     }
@@ -467,7 +467,7 @@ html[data-useragent*='MSIE 10.0'] {
     $h: $w;
     #container {
         left:50vw;
-        top:60vh;
+        top:55vh;
         margin-left: -($w/2);
         margin-top: -($h/2);
 
@@ -536,7 +536,7 @@ html[data-useragent*='MSIE 10.0'] {
         top:5px;
 
         hr {
-            height:45px;
+            height:35px;
         }
 
         a {

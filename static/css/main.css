@@ -432,22 +432,22 @@ html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
   nav {
     display: block;
     left: 5vw;
-    top: 10px;
+    top: 5px;
     width: 95vw; }
     nav hr {
-      height: 55px;
+      height: 50%;
       width: 0px;
       float: left;
-      margin: 2px 10px 0 10px; }
+      margin: 0px 10px 0 10px; }
     nav a {
       font-size: 12px;
       margin-left: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       max-width: 100%;
       float: left;
       padding: 0; }
       nav a span {
-        padding: 17px 22px; }
+        padding: 15px 18px; }
   #note {
     display: none; }
   #keyMap {
@@ -460,7 +460,7 @@ html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
     width: 45vw; }
   #container {
     left: 50vw;
-    top: 60vh;
+    top: 55vh;
     margin-left: -45vw;
     margin-top: -45vw; }
     #container #cube {
@@ -527,7 +527,7 @@ html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
   nav {
     top: 5px; }
     nav hr {
-      height: 45px; }
+      height: 35px; }
     nav a {
       font-size: 10px;
       margin-left: 5px; }
