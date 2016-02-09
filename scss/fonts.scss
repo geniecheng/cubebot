@@ -1,6 +1,11 @@
 @import 'fn.scss';
 
-@include font-face('Graphik', '../fonts/Graphik-Regular-Web');
+//@include font-face('Graphik', '../fonts/Graphik-Regular-Web');
 @include font-face('Swiss', '../fonts/swiss_721_bold_extended-webfont');
 @include font-face('Goff', '../fonts/goff-black-webfont');
 @include font-face('Goff', '../fonts/goff-bold-webfont',bold);
+
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-Medium-Web.eot?") format("eot"), url("../fonts/Graphik-Medium-Web.woff") format("woff")}
