@@ -22,11 +22,11 @@
                                   not supported by any browser */ }
 
 .front {
-  background-color: #ff0000; }
+  background-color: #ce0000; }
   .front svg path {
     fill: #FFF; }
   .front:hover span {
-    color: #ff0000; }
+    color: #ce0000; }
 
 .right {
   background-color: #0033CC; }

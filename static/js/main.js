@@ -265,6 +265,21 @@ $(function (){
         delegate(fake);
     });
 
+    /* potential spin animation
+    $('#note > a').on('click', function (evt){
+        evt.preventDefault();
+
+        //$cube.addClass('spin');
+        var v = 50;
+        var y = _.random(w*0.25,v*0.75);
+        var x = _.random(w*0.25,v*0.75);
+        suppress=true;
+        $('html, body').animate({
+            scrollTop: y,
+            scrollLeft: x
+        }, 5000, function (){ suppress=false;});
+    });*/
+
     if(!isMobile()){
         /* face focusing utils */
         $(document).on('click','.lock',orientCube)

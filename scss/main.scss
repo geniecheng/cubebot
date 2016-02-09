@@ -24,8 +24,8 @@ $ih: 612px;
 
 #logo {
     position:fixed;
-    left:5px;
-    bottom:5px;
+    left:10px;
+    bottom:10px;
     width:15vw;
 }
 
@@ -92,6 +92,7 @@ nav {
     opacity:0.8;
     font-family: $graphik;
     text-align:center;
+    font-size:13px;
 
     a:link, a:visited {
         color:black;
@@ -147,6 +148,7 @@ $kw: 60px;
     top:50%;
     margin-left: -($w/2);
     margin-top: -($h/2);
+    z-index:1;
 
     #intermediary {
         perspective: 3000px;
@@ -230,7 +232,7 @@ $kw: 60px;
                             }
 
                             .caption {
-                                width:50%;
+                                width:46%;
                                 height:90%;
                                 padding: 25px;
                                 line-height:25px;
@@ -240,6 +242,7 @@ $kw: 60px;
                                     font-family:$goff;
                                     font-weight:normal;
                                     font-size:20px;
+                                    margin-top:0;
                                 }
 
                                 p {
@@ -284,12 +287,17 @@ $kw: 60px;
                         background-color:rgba(105,105,105,0.75);
                         z-index:100;
                         text-align: center;
-                        line-height:$pw/$cols;
+                        //line-height:$pw/$cols;
                         color:#FFF;
                         text-decoration: none;
                         opacity:0;
-                        font-family:$goff;
+                        font-family:$graphik;
                         font-size:20px;
+
+                        p {
+                            font-size:14px;
+                            padding: 0 10%;
+                        }
                     }
                 }
             }
@@ -357,8 +365,8 @@ $kw: 60px;
 
             .lock {
                 position:absolute;
-                right: 1%;
-                top:1%;
+                right: 1.25%;
+                top:1.25%;
                 width:20px;
                 cursor:pointer;
                 z-index:100;
@@ -381,6 +389,16 @@ $kw: 60px;
     bottom:5px;
     font-size:13px;
     font-family:$graphik;
+    z-index:0;
+
+    a {
+        &:link,&:visited {
+            color:black;
+        }
+        &:hover {
+            color:blue;
+        }
+    }
 }
 
 .goff-blk {
@@ -424,10 +442,7 @@ html[data-useragent*='MSIE 10.0'] {
         width:95vw;
 
         hr {
-            height:50%;
-            width:0px;
-            float:left;
-            margin: 0px 10px 0 10px;
+            display:none;
         }
 
         a {
@@ -456,6 +471,8 @@ html[data-useragent*='MSIE 10.0'] {
         width:45vw;
         background-color:rgba(255,255,255,0.75);
         padding:3px;
+        // hide for now
+        display:none;
     }
 
     #logo {

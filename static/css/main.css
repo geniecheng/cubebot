@@ -22,11 +22,11 @@
                                   not supported by any browser */ }
 
 .front {
-  background-color: #ff0000; }
+  background-color: #ce0000; }
   .front svg path {
     fill: #FFF; }
   .front:hover span {
-    color: #ff0000; }
+    color: #ce0000; }
 
 .right {
   background-color: #0033CC; }
@@ -82,8 +82,8 @@ html, body {
 
 #logo {
   position: fixed;
-  left: 5px;
-  bottom: 5px;
+  left: 10px;
+  bottom: 10px;
   width: 15vw; }
 
 nav {
@@ -139,7 +139,8 @@ nav {
   width: 80px;
   opacity: 0.8;
   font-family: "Graphik", sans-serif;
-  text-align: center; }
+  text-align: center;
+  font-size: 13px; }
   #note a:link, #note a:visited, #advanced a:link, #advanced a:visited {
     color: black;
     text-decoration: none; }
@@ -188,7 +189,8 @@ nav {
   left: 50%;
   top: 50%;
   margin-left: -47.5vh;
-  margin-top: -47.5vh; }
+  margin-top: -47.5vh;
+  z-index: 1; }
   #container #intermediary {
     perspective: 3000px;
     perspective-origin: 50% 50%; }
@@ -262,7 +264,7 @@ nav {
               letter-spacing: 2px;
               word-spacing: -3px; }
             #container #cube .face.photos .photo-item .photo-slideshow li .caption {
-              width: 50%;
+              width: 46%;
               height: 90%;
               padding: 25px;
               line-height: 25px;
@@ -270,7 +272,8 @@ nav {
               #container #cube .face.photos .photo-item .photo-slideshow li .caption h1 {
                 font-family: "Goff";
                 font-weight: normal;
-                font-size: 20px; }
+                font-size: 20px;
+                margin-top: 0; }
               #container #cube .face.photos .photo-item .photo-slideshow li .caption p {
                 font-family: "Goff";
                 font-weight: bold; }
@@ -302,12 +305,14 @@ nav {
             background-color: rgba(105, 105, 105, 0.75);
             z-index: 100;
             text-align: center;
-            line-height: 42.5%;
             color: #FFF;
             text-decoration: none;
             opacity: 0;
-            font-family: "Goff";
+            font-family: "Graphik", sans-serif;
             font-size: 20px; }
+            #container #cube .face.instagram .photo a p {
+              font-size: 14px;
+              padding: 0 10%; }
       #container #cube .face.youtube {
         display: -webkit-box;
         display: -moz-box;
@@ -362,8 +367,8 @@ nav {
               font-size: 60px; }
       #container #cube .face .lock {
         position: absolute;
-        right: 1%;
-        top: 1%;
+        right: 1.25%;
+        top: 1.25%;
         width: 20px;
         cursor: pointer;
         z-index: 100; }
@@ -406,7 +411,12 @@ nav {
   right: 10px;
   bottom: 5px;
   font-size: 13px;
-  font-family: "Graphik", sans-serif; }
+  font-family: "Graphik", sans-serif;
+  z-index: 0; }
+  #credits a:link, #credits a:visited {
+    color: black; }
+  #credits a:hover {
+    color: blue; }
 
 .goff-blk {
   font-family: "Goff";
@@ -435,10 +445,7 @@ html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
     top: 5px;
     width: 95vw; }
     nav hr {
-      height: 50%;
-      width: 0px;
-      float: left;
-      margin: 0px 10px 0 10px; }
+      display: none; }
     nav a {
       font-size: 12px;
       margin-left: 10px;
@@ -455,7 +462,8 @@ html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
   #credits {
     width: 45vw;
     background-color: rgba(255, 255, 255, 0.75);
-    padding: 3px; }
+    padding: 3px;
+    display: none; }
   #logo {
     width: 45vw; }
   #container {

@@ -33,7 +33,10 @@ var Gram = Backbone.Model.extend({
     truncate:20,
     template: _.template(
         "<img class='pic' src='<%= o.get('photo') %>'>"+
-        "<a href='https://www.instagram.com/<%= o.get('user') %>/' target='_blank'>@cubebotofficial</a>"
+        "<a href='https://www.instagram.com/<%= o.get('user') %>/' target='_blank'>"+
+            "@cubebotofficial"+
+        "<p class='caption'><%= o.get_caption() %></p>"+
+        "</a>"
     ),
 
     intitialze: function (){
@@ -47,8 +50,8 @@ var Gram = Backbone.Model.extend({
     get_caption: function (){
         var c = this.get('caption');
 
-        if(typeof c !== "undefined" && c.length > this.truncate)
-            c = c.slice(0,this.truncate) + '...';
+        //if(typeof c !== "undefined" && c.length > this.truncate)
+        //    c = c.slice(0,this.truncate) + '...';
 
         return c;
     }
@@ -491,7 +494,8 @@ $(function (){
             if(!this.config.models.length) return this;
             var self = this;
 
-            _(this.config.models[0].attributes).each(_.bind(function (_type,face){
+            // plot cube
+            _(this.config.models[0].attributes.faces).each(_.bind(function (_type,face,idx){
                 var _class = registry[_type]
 
                 obj = new _class({type:_type});
@@ -502,7 +506,10 @@ $(function (){
                 ele.addClass(face+' face');
 
                 this.$el.append(ele);
+            },this));
 
+            // plot nav
+            _(this.config.models[0].attributes.nav_order).each(_.bind(function (_type,face){
                 this.$nav.append(
                     this.navTemplate({face:face,label:labels[_type]})
                 );
