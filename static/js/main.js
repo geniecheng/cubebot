@@ -80,6 +80,8 @@ function transEnd(){
     lDeltaX = 0;
     lDeltaY = 0;
     window.scrollTo(w/2, h/2);
+
+    $(window).trigger('anim-done');
 }
 
 function orientCube(evt){
@@ -92,6 +94,13 @@ function orientCube(evt){
         face = $(evt.target).parents('div.lock').data('face');
     else
         face = $(evt.target).data('face');
+
+    // if face contains a slideshow, reset
+    if(typeof objBin[face].slideshow !== "undefined" && objBin[face].slideshow){
+        $(window).one('anim-done',function (){
+            objBin[face].first();
+        });
+    }
 
     /*
         reorient faces to within one revolution

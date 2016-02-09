@@ -200,8 +200,9 @@ var Solution = Backbone.View.extend({
     tagName:'li',
     className:'solution',
     animDelay:300,
+    slideshow:true,
     initialize: function (opts){
-        _.bindAll(this, 'cursor','delegate','prev','next');
+        _.bindAll(this,'first','cursor','delegate','prev','next');
         opts = opts || {};
 
         this.item = new Mixes(opts);
@@ -238,6 +239,30 @@ var Solution = Backbone.View.extend({
             this.next();
         else
             this.prev();
+
+        var self = this;
+        this.images.eq(this.idx)
+                   .css('z-index',99)
+                   .addClass('active');
+
+        setTimeout(function (){
+            self.images.eq(self.lidx)
+                       .removeClass('active')
+                       .css('z-index',-1);
+
+            self.anim = false;
+        },this.animDelay);
+    },
+
+
+    first: function (){
+        if(this.idx === 0) return;
+
+        this.images.eq(this.idx).css('z-index',95);
+
+        this.anim = true;
+        this.lidx = this.idx;
+        this.idx = 0;
 
         var self = this;
         this.images.eq(this.idx)
@@ -360,8 +385,9 @@ var Photos = Backbone.View.extend({
     tagName:'li',
     className:'photos',
     animDelay:300,
+    slideshow:true,
     initialize: function (opts){
-        _.bindAll(this, 'prev','next','delegate','cursor');
+        _.bindAll(this,'first','prev','next','delegate','cursor');
         opts = opts || {};
 
         this.item = new PhotoCollection(opts);
@@ -397,6 +423,29 @@ var Photos = Backbone.View.extend({
             this.next();
         else
             this.prev();
+
+        var self = this;
+        this.images.eq(this.idx)
+                   .css('z-index',99)
+                   .addClass('active');
+
+        setTimeout(function (){
+            self.images.eq(self.lidx)
+                       .removeClass('active')
+                       .css('z-index',-1);
+
+            self.anim = false;
+        },this.animDelay);
+    },
+
+    first: function (){
+        if(this.idx === 0) return;
+
+        this.images.eq(this.idx).css('z-index',95);
+
+        this.anim = true;
+        this.lidx = this.idx;
+        this.idx = 0;
 
         var self = this;
         this.images.eq(this.idx)
@@ -474,6 +523,7 @@ var Configuration = BaseCollection.extend({
 });
 
 var Cube;
+var objBin = {};
 $(function (){
     Cube = Backbone.View.extend({
         tagName:'ul',
@@ -500,6 +550,7 @@ $(function (){
 
                 obj = new _class({type:_type});
                 obj.face = face;
+                objBin[face] = obj;
 
                 var ele = obj.render().$el;
                 ele.attr('data-face', face);
