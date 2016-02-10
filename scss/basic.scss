@@ -63,3 +63,32 @@ html,body {
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+
+    nav {
+        position:relative;
+
+        &:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+    }
+
+    #container {
+        width:auto;
+        margin-top:25px;
+        margin-bottom:5vh;
+
+        #cube {
+            margin-left:2.5vw;
+
+            .face {
+                height:95vw;
+                width:95vw;
+            }
+        }
+    }
+
+}

@@ -34,7 +34,6 @@ var Gram = Backbone.Model.extend({
     template: _.template(
         "<img class='pic' src='<%= o.get('photo') %>'>"+
         "<a href='https://www.instagram.com/<%= o.get('user') %>/' target='_blank'>"+
-            "@cubebotofficial"+
         "<p class='caption'><%= o.get_caption() %></p>"+
         "</a>"
     ),

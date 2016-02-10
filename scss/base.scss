@@ -23,15 +23,10 @@ $bottom-face-bgcolor:#FFCC00;
 $hover-color: blue;
 $link-color: black;
 
-$graphik: 'Graphik', sans-serif;
+$graphik: 'GraphikReg', sans-serif;
+$graphikMed: 'graphikMed';
 $swiss: 'Swiss', sans-serif;
 $goff: 'Goff';
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */

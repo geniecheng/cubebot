@@ -1,11 +1,11 @@
 /* flexbox specs */
-/* global style variables */
-/* TODO: colors defined here */
 .clearfix:after {
   content: "";
   display: table;
   clear: both; }
 
+/* global style variables */
+/* TODO: colors defined here */
 .noselect, #keyMap, #container #cube .face.photos .photo-item, #container #cube .face.solution .solution-item .solution-slideshow li .caption {
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -116,7 +116,7 @@ nav {
       display: block;
       max-width: 100px;
       text-transform: uppercase;
-      font-family: "Graphik", sans-serif;
+      font-family: "GraphikReg", sans-serif;
       padding: 7px 12px;
       background-color: #FFF !important; }
     nav a.yellow {
@@ -138,7 +138,7 @@ nav {
   background-color: #FFF;
   width: 80px;
   opacity: 0.8;
-  font-family: "Graphik", sans-serif;
+  font-family: "GraphikReg", sans-serif;
   text-align: center;
   font-size: 13px; }
   #note a:link, #note a:visited, #advanced a:link, #advanced a:visited {
@@ -295,11 +295,20 @@ nav {
             -ms-transition: opacity 0.3s ease-in-out;
             -o-transition: opacity 0.3s ease-in-out;
             transition: opacity 0.3s ease-in-out;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
             position: absolute;
-            display: block;
             width: 100%;
-            height: 50%;
-            padding: 50% 0 0 0;
+            height: 99%;
             top: 0;
             left: 0;
             background-color: rgba(105, 105, 105, 0.75);
@@ -308,11 +317,12 @@ nav {
             color: #FFF;
             text-decoration: none;
             opacity: 0;
-            font-family: "Graphik", sans-serif;
+            font-family: "GraphikReg", sans-serif;
             font-size: 20px; }
             #container #cube .face.instagram .photo a p {
               font-size: 14px;
-              padding: 0 10%; }
+              padding: 0 10%;
+              margin: 0; }
       #container #cube .face.youtube {
         display: -webkit-box;
         display: -moz-box;
@@ -411,7 +421,7 @@ nav {
   right: 10px;
   bottom: 5px;
   font-size: 13px;
-  font-family: "Graphik", sans-serif;
+  font-family: "GraphikReg", sans-serif;
   z-index: 0; }
   #credits a:link, #credits a:visited {
     color: black; }
@@ -427,7 +437,10 @@ nav {
   font-weight: bold; }
 
 .graphik-reg {
-  font-family: "Graphik", sans-serif !important; }
+  font-family: "GraphikReg", sans-serif !important; }
+
+.graphik-med {
+  font-family: "graphikMed" !important; }
 
 html[data-useragent*='MSIE 10.0'] nav a {
   float: left; }

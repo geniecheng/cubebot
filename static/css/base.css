@@ -1,11 +1,11 @@
 /* flexbox specs */
-/* global style variables */
-/* TODO: colors defined here */
 .clearfix:after {
   content: "";
   display: table;
   clear: both; }
 
+/* global style variables */
+/* TODO: colors defined here */
 .noselect {
   -webkit-touch-callout: none;
   /* iOS Safari */

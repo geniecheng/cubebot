@@ -1,4 +1,9 @@
 /* flexbox specs */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
 html, body {
   width: auto;
   height: auto; }
@@ -49,3 +54,20 @@ html, body {
       #container #cube .face.solution .solution-item {
         margin: 0;
         padding: 4% 0 0 4%; }
+
+@media screen and (max-width: 768px) {
+  nav {
+    position: relative; }
+    nav:after {
+      content: "";
+      display: table;
+      clear: both; }
+  #container {
+    width: auto;
+    margin-top: 25px;
+    margin-bottom: 5vh; }
+    #container #cube {
+      margin-left: 2.5vw; }
+      #container #cube .face {
+        height: 95vw;
+        width: 95vw; } }

@@ -241,7 +241,7 @@ $(function (){
         $cube
     );
 
-    if(window.location.search.replace('?','') === 'basic'){
+    if(window.location.search.replace('?','') === 'basic' || isMobile()){
         var css = document.createElement('link');
         css.href = '/css/basic.css';
         css.setAttribute('rel','stylesheet');
