@@ -2,7 +2,10 @@ var transEndStr = 'webkitTransitionEnd transitionend msTransitionEnd oTransition
 var URL;
 
 URL = 'https://morning-thicket-7130.herokuapp.com/api';
-//URL = 'http://localhost:8000/api';
+
+
+cursorRight = 'url("../img/arrow-35-right.png"),e-resize';
+cursorLeft = 'url("../img/arrow-35-left.png"),w-resize';
 
 var rotate_svg = '<svg x="0px" y="0px" viewBox="0 0 486.805 486.805"><path d="M261.397,17.983c-88.909,0-167.372,51.302-203.909,129.073L32.072,94.282L0,109.73l52.783,109.565l109.565-52.786l-15.451-32.066L89.82,161.934c30.833-65.308,96.818-108.353,171.577-108.353c104.668,0,189.818,85.154,189.818,189.821s-85.15,189.824-189.818,189.824c-61.631,0-119.663-30.109-155.228-80.539l-29.096,20.521c42.241,59.87,111.143,95.613,184.324,95.613c124.286,0,225.407-101.122,225.407-225.419S385.684,17.983,261.397,17.983z"/></svg>';
 
@@ -220,9 +223,9 @@ var Solution = Backbone.View.extend({
         var bb = this.el.getBoundingClientRect();
 
         if(x - bb.left > bb.width/2 || evt.type === 'swiperight')
-            this.$el.css('cursor','e-resize')
+            this.$el.css('cursor',cursorRight)
         else
-            this.$el.css('cursor','w-resize')
+            this.$el.css('cursor',cursorLeft)
     },
 
     delegate: function (evt){
@@ -406,9 +409,9 @@ var Photos = Backbone.View.extend({
         var bb = this.el.getBoundingClientRect();
 
         if(x - bb.left > bb.width/2)
-            this.$el.css('cursor','e-resize')
+            this.$el.css('cursor',cursorRight)
         else
-            this.$el.css('cursor','w-resize')
+            this.$el.css('cursor',cursorLeft)
     },
 
     delegate: function (evt){
