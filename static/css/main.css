@@ -6,7 +6,7 @@
 
 /* global style variables */
 /* TODO: colors defined here */
-.noselect, #keyMap, #container #cube .face.photos .photo-item, #container #cube .face.solution .solution-item .solution-slideshow li .caption {
+.noselect, #keyMap, #container #cube .face.photos .photo-item, #container #cube .face.solution .solution-item, #container #cube .face.solution .solution-item .solution-slideshow li .caption {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;

@@ -332,6 +332,8 @@ $kw: 60px;
                     margin-top:4%;
                     margin-left:4%;
 
+                    @extend .noselect;
+
                     .solution-slideshow {
                         padding:0;
                         position:relative;

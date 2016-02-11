@@ -210,7 +210,7 @@ var Solution = Backbone.View.extend({
         this.idx = 0;
 
         this.$el.on('mousemove',_.throttle(this.cursor,50));
-        this.$el.on('mouseup','.solution-slideshow',this.delegate);
+        this.$el.on('mouseup swiperight swipeleft','.solution-slideshow',this.delegate);
 
 
         this.item.fetch();
@@ -221,7 +221,7 @@ var Solution = Backbone.View.extend({
         var x = evt.clientX;
         var bb = this.el.getBoundingClientRect();
 
-        if(x - bb.left > bb.width/2)
+        if(x - bb.left > bb.width/2 || evt.type === 'swiperight')
             this.$el.css('cursor','e-resize')
         else
             this.$el.css('cursor','w-resize')
@@ -395,7 +395,7 @@ var Photos = Backbone.View.extend({
         this.idx = 0;
 
         this.$el.on('mousemove',_.throttle(this.cursor,50));
-        this.$el.on('mouseup','.photo-slideshow',this.delegate);
+        this.$el.on('mouseup swiperight swipeleft','.photo-slideshow',this.delegate);
 
         this.item.fetch();
         this.listenTo(this.item,'sync',this.render);
@@ -418,7 +418,7 @@ var Photos = Backbone.View.extend({
         this.images.eq(this.idx).css('z-index',95);
 
         // click over halfway point?
-        if(evt.clientX - bb.left > bb.width/2 || isMobile())
+        if(evt.clientX - bb.left > bb.width/2 || evt.type === 'swiperight')
             this.next();
         else
             this.prev();
