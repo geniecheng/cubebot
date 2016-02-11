@@ -66,6 +66,10 @@ html,body {
 
 @media screen and (max-width: 768px) {
 
+    #advanced {
+        display:none;
+    }
+
     nav {
         position:relative;
 

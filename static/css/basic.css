@@ -56,6 +56,8 @@ html, body {
         padding: 4% 0 0 4%; }
 
 @media screen and (max-width: 768px) {
+  #advanced {
+    display: none; }
   nav {
     position: relative; }
     nav:after {
