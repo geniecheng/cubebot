@@ -109,7 +109,6 @@ var Instagram = Backbone.View.extend({
     Youtube face
 */
 var Tube = Backbone.Model.extend({
-    truncate:20,
     template: _.template(
     "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\""+
         "src=\"http://www.youtube.com/embed/<%= o.get('yt_id') %>\""+
@@ -170,7 +169,6 @@ var Youtube = Backbone.View.extend({
     Solution face
 */
 var Mix = Backbone.Model.extend({
-    truncate:20,
     template: _.template($('#solution-template').html())
 });
 
@@ -343,7 +341,6 @@ var Static = Backbone.View.extend({
 
 
 var Photo = Backbone.Model.extend({
-    truncate:20,
     template: _.template($('#photography-template').html()),
     initialize: function (opts){
         _.bindAll(this,'get_caption');
@@ -384,10 +381,13 @@ var Photos = Backbone.View.extend({
     tagName:'li',
     className:'photos',
     animDelay:300,
+    limit:50,
     slideshow:true,
     initialize: function (opts){
         _.bindAll(this,'first','prev','next','delegate','cursor');
         opts = opts || {};
+
+        opts['limit'] = this.limit;
 
         this.item = new PhotoCollection(opts);
 

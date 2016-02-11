@@ -260,20 +260,23 @@ nav {
             opacity: 0; }
             #container #cube .face.photos .photo-item .photo-slideshow li.active {
               opacity: 1; }
-            #container #cube .face.photos .photo-item .photo-slideshow li:not(:first-child) .caption p {
-              letter-spacing: 2px;
-              word-spacing: -3px; }
+            #container #cube .face.photos .photo-item .photo-slideshow li:not(:first-child) .caption {
+              width: 80%; }
+              #container #cube .face.photos .photo-item .photo-slideshow li:not(:first-child) .caption p {
+                letter-spacing: 2px;
+                word-spacing: -3px; }
             #container #cube .face.photos .photo-item .photo-slideshow li .caption {
-              width: 46%;
+              width: 43%;
               height: 90%;
-              padding: 25px;
+              padding: 35px 0 0 45px;
               line-height: 25px;
               overflow: auto; }
               #container #cube .face.photos .photo-item .photo-slideshow li .caption h1 {
                 font-family: "Goff";
                 font-weight: normal;
                 font-size: 20px;
-                margin-top: 0; }
+                margin-top: 0;
+                letter-spacing: 2px; }
               #container #cube .face.photos .photo-item .photo-slideshow li .caption p {
                 font-family: "Goff";
                 font-weight: bold; }

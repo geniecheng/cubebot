@@ -256,6 +256,19 @@ $(function (){
             });
         });
 
+        $('nav').on('click', 'a', function (evt){
+            var face;
+            if(!$(evt.target).data('face'))
+                face = $(evt.target).parents('div.lock').data('face');
+            else
+                face = $(evt.target).data('face');
+
+            // if face contains a slideshow, reset
+            if(typeof objBin[face].slideshow !== "undefined" && objBin[face].slideshow){
+                objBin[face].first();
+            }
+        });
+
         return;
     }
 

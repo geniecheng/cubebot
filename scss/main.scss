@@ -226,15 +226,19 @@ $kw: 60px;
                                 opacity:1;
                             }
 
-                            &:not(:first-child) .caption p{
-                                letter-spacing: 2px;
-                                word-spacing: -3px;
+                            &:not(:first-child) .caption {
+                                width:80%;
+
+                                p {
+                                    letter-spacing: 2px;
+                                    word-spacing: -3px;
+                                }
                             }
 
                             .caption {
-                                width:46%;
+                                width:43%;
                                 height:90%;
-                                padding: 25px;
+                                padding: 35px 0 0 45px;
                                 line-height:25px;
                                 overflow:auto;
 
@@ -243,6 +247,7 @@ $kw: 60px;
                                     font-weight:normal;
                                     font-size:20px;
                                     margin-top:0;
+                                    letter-spacing: 2px;
                                 }
 
                                 p {

@@ -70,19 +70,9 @@ html,body {
         display:none;
     }
 
-    nav {
-        position:relative;
-
-        &:after {
-          content: "";
-          display: table;
-          clear: both;
-        }
-    }
-
     #container {
         width:auto;
-        margin-top:25px;
+        margin-top:25vh;
         margin-bottom:5vh;
 
         #cube {
@@ -91,6 +81,11 @@ html,body {
             .face {
                 height:95vw;
                 width:95vw;
+
+                &.photos .photo-item .photo-slideshow li .caption {
+                    width:46%;
+                    padding: 25px;
+                }
             }
         }
     }

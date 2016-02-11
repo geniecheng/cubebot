@@ -58,18 +58,15 @@ html, body {
 @media screen and (max-width: 768px) {
   #advanced {
     display: none; }
-  nav {
-    position: relative; }
-    nav:after {
-      content: "";
-      display: table;
-      clear: both; }
   #container {
     width: auto;
-    margin-top: 25px;
+    margin-top: 25vh;
     margin-bottom: 5vh; }
     #container #cube {
       margin-left: 2.5vw; }
       #container #cube .face {
         height: 95vw;
-        width: 95vw; } }
+        width: 95vw; }
+        #container #cube .face.photos .photo-item .photo-slideshow li .caption {
+          width: 46%;
+          padding: 25px; } }
