@@ -256,7 +256,10 @@ $(function (){
             });
         });
 
+        var nav_h = $('nav').height();
         $('nav').on('click', 'a', function (evt){
+            evt.preventDefault();
+
             var face;
             if(!$(evt.target).data('face'))
                 face = $(evt.target).parents('div.lock').data('face');
@@ -267,6 +270,10 @@ $(function (){
             if(typeof objBin[face].slideshow !== "undefined" && objBin[face].slideshow){
                 objBin[face].first();
             }
+
+            $('html, body').animate({
+                scrollTop: $('li.'+face).offset().top - (isMobile()?nav_h:0),
+            }, 750, function (){ suppress=false;});
         });
 
         return;

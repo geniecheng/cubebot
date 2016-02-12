@@ -61,7 +61,7 @@ html, body {
   #container {
     width: auto;
     margin-top: 25vh;
-    margin-bottom: 5vh; }
+    margin-bottom: 20vh; }
     #container #cube {
       margin-left: 2.5vw; }
       #container #cube .face {
