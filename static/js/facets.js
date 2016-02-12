@@ -2,6 +2,7 @@ var transEndStr = 'webkitTransitionEnd transitionend msTransitionEnd oTransition
 var URL;
 
 URL = 'https://morning-thicket-7130.herokuapp.com/api';
+//URL = 'http://localhost:8000/api';
 
 
 cursorRight = 'url("../img/arrow-35-right.png"),e-resize';
@@ -205,6 +206,8 @@ var Solution = Backbone.View.extend({
         _.bindAll(this,'first','cursor','delegate','prev','next');
         opts = opts || {};
 
+        opts['limit'] = 20;
+
         this.item = new Mixes(opts);
 
         this.anim = false;
@@ -222,7 +225,7 @@ var Solution = Backbone.View.extend({
         var x = evt.clientX;
         var bb = this.el.getBoundingClientRect();
 
-        if(x - bb.left > bb.width/2 || evt.type === 'swiperight')
+        if(x - bb.left > bb.width/2)
             this.$el.css('cursor',cursorRight)
         else
             this.$el.css('cursor',cursorLeft)
@@ -235,7 +238,7 @@ var Solution = Backbone.View.extend({
         this.images.eq(this.idx).css('z-index',95);
 
         // click over halfway point?
-        if(evt.clientX - bb.left > bb.width/2 || isMobile())
+        if(evt.clientX - bb.left > bb.width/2 || evt.type === 'swipeleft')
             this.next();
         else
             this.prev();
@@ -409,9 +412,9 @@ var Photos = Backbone.View.extend({
         var bb = this.el.getBoundingClientRect();
 
         if(x - bb.left > bb.width/2)
-            this.$el.css('cursor',cursorRight)
+            this.$el.css('cursor',cursorRight);
         else
-            this.$el.css('cursor',cursorLeft)
+            this.$el.css('cursor',cursorLeft);
     },
 
     delegate: function (evt){
@@ -421,7 +424,7 @@ var Photos = Backbone.View.extend({
         this.images.eq(this.idx).css('z-index',95);
 
         // click over halfway point?
-        if(evt.clientX - bb.left > bb.width/2 || evt.type === 'swiperight')
+        if(evt.clientX - bb.left > bb.width/2 || evt.type === 'swipeleft')
             this.next();
         else
             this.prev();

@@ -68,5 +68,7 @@ html, body {
         height: 95vw;
         width: 95vw; }
         #container #cube .face.photos .photo-item .photo-slideshow li .caption {
-          width: 46%;
-          padding: 25px; } }
+          width: 50%;
+          padding: 5px 0 0 15px; }
+          #container #cube .face.photos .photo-item .photo-slideshow li .caption h1 {
+            font-size: 13px; } }
