@@ -226,9 +226,9 @@ var Solution = Backbone.View.extend({
         var bb = this.el.getBoundingClientRect();
 
         if(x - bb.left > bb.width/2)
-            this.$el.css('cursor',cursorRight)
+            this.$slideshow.css('cursor',cursorRight)
         else
-            this.$el.css('cursor',cursorLeft)
+            this.$slideshow.css('cursor',cursorLeft)
     },
 
     delegate: function (evt){
@@ -310,8 +310,11 @@ var Solution = Backbone.View.extend({
         var lock = $("<div class='lock' data-face='"+this.face+"'>"+rotate_svg+"</div>");
         this.$el.append(lock);
 
+        // store slideshow container for contextual cursor
+        this.$slideshow = this.$el.find('.solution-slideshow');
+
         /* cache images*/
-        this.images = this.$el.find('.solution-slideshow li');
+        this.images = this.$slideshow.find('li');
 
         return this;
     }
@@ -412,9 +415,9 @@ var Photos = Backbone.View.extend({
         var bb = this.el.getBoundingClientRect();
 
         if(x - bb.left > bb.width/2)
-            this.$el.css('cursor',cursorRight);
+            this.$slideshow.css('cursor',cursorRight);
         else
-            this.$el.css('cursor',cursorLeft);
+            this.$slideshow.css('cursor',cursorLeft);
     },
 
     delegate: function (evt){
@@ -494,8 +497,11 @@ var Photos = Backbone.View.extend({
         var lock = $("<div class='lock' data-face='"+this.face+"'>"+rotate_svg+"</div>");
         this.$el.append(lock);
 
+        // store slideshow container for contextual cursor
+        this.$slideshow = this.$el.find('.photo-slideshow');
+
         /* cache images, boundingbox */
-        this.images = this.$el.find('.photo-slideshow li');
+        this.images = this.$slideshow.find('li');
 
         return this;
     }
