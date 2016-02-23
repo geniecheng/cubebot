@@ -1,24 +1,24 @@
 @import 'fn.scss';
 
 /* global style variables */
-$w:95vh;
+$w:85vh;
 $h:$w;
 
 /* TODO: colors defined here */
-$front-face-bgcolor:#ce0000;
+$front-face-bgcolor:#2ed03c;
 $front-face-svg:#FFF;
 
-$right-face-bgcolor:#0033CC;
+$right-face-bgcolor:#7859b1;
 $right-face-svg:#FFF;
 
 $back-face-bgcolor:#006666;
 $back-face-svg:#FFF;
 
 $left-face-bgcolor:#FF99CC;
-$top-face-bgcolor:#000;
+$top-face-bgcolor:black;
 $top-face-svg:#FFF;
 
-$bottom-face-bgcolor:#FFCC00;
+$bottom-face-bgcolor:white;
 
 $hover-color: blue;
 $link-color: black;

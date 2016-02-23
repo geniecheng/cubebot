@@ -5,8 +5,7 @@ html,body {
 
     width:50000px;
     height:50000px;
-    background-image:url(/img/dot.jpg);
-    background-size: 10px 10px;
+    background-image: url('../img/cubebotbg4.gif'); 
 
     font-family:Arial;
 
@@ -24,9 +23,9 @@ $ih: 612px;
 
 #logo {
     position:fixed;
-    left:10px;
-    bottom:10px;
-    width:15vw;
+    right:20px;
+    bottom:20px;
+    width:250px;
 }
 
 nav {
@@ -37,6 +36,7 @@ nav {
     top:35px;
     position:fixed;
     z-index:99;
+    background:white;
 
     hr {
         margin: 5px 0 10px 0;
@@ -45,7 +45,7 @@ nav {
 
     a {
         padding: 8px 0;
-        text-align:center;
+        text-align:left;
         text-decoration: none;
         background-color:transparent !important;
 
@@ -93,6 +93,7 @@ nav {
     font-family: $graphik;
     text-align:center;
     font-size:13px;
+    display:none;
 
     a:link, a:visited {
         color:black;
@@ -114,6 +115,7 @@ $kw: 60px;
     top:3%;
     list-style-type:none;
     z-index:99;
+     display:none;
 
     @extend .noselect;
 
@@ -198,10 +200,10 @@ $kw: 60px;
 
                 .photo-item {
 
-                    width:92%;
-                    height:92%;
-                    margin-top:4%;
-                    margin-left:4%;
+                    width:100%;
+                    height:100%;
+                    margin-top:0%;
+                    margin-left:0%;
 
                     @extend .noselect;
 
@@ -243,15 +245,15 @@ $kw: 60px;
                                 overflow:auto;
 
                                 h1 {
-                                    font-family:$goff;
+                                    font-family:$graphik;
                                     font-weight:normal;
                                     font-size:20px;
                                     margin-top:0;
-                                    letter-spacing: 2px;
+                                    letter-spacing: 0px;
                                 }
 
                                 p {
-                                    font-family: $goff;
+                                    font-family: $graphik;
                                     font-weight: bold;
                                 }
                             }
@@ -332,10 +334,10 @@ $kw: 60px;
             &.solution {
 
                 .solution-item {
-                    width:92%;
-                    height:92%;
-                    margin-top:4%;
-                    margin-left:4%;
+                    width:100%;
+                    height:100%;
+                    margin-top:0;
+                    margin-left:0;
 
                     @extend .noselect;
 
@@ -365,7 +367,7 @@ $kw: 60px;
                                 right:30px;
                                 bottom:15px;
                                 font-family:$goff;
-                                font-size:60px;
+                                font-size:2em;
 
                                 @extend .noselect;
                             }
@@ -381,6 +383,7 @@ $kw: 60px;
                 width:20px;
                 cursor:pointer;
                 z-index:100;
+                display:none;
 
                 svg {
                     width:20px;
@@ -396,11 +399,14 @@ $kw: 60px;
 
 #credits {
     position:fixed;
-    right:10px;
-    bottom:5px;
+    left:40px;
+    bottom:40px;
+    width:5vw;
     font-size:13px;
     font-family:$graphik;
     z-index:0;
+    background:white;
+    padding:10px;
 
     a {
         &:link,&:visited {
@@ -491,7 +497,7 @@ html[data-useragent*='MSIE 10.0'] {
     }
 
     #logo {
-        width:45vw;
+        width:300px;
     }
 
 
@@ -550,7 +556,7 @@ html[data-useragent*='MSIE 10.0'] {
 
     #container #cube .face.photos .photo-item .photo-slideshow li {
         .caption {
-            width:95%;
+            width:100%;
             padding:5px 0 0 10px;
 
             h1 {
