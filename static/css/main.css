@@ -63,7 +63,8 @@ html, body {
   margin: 0;
   width: 50000px;
   height: 50000px;
-  background-image: url("../img/cubebotbg4.gif");
+  background-image: url("../img/cubebot-background-bright.gif");
+  background-position: center;
   font-family: Arial; }
 
 @-moz-keyframes spin {
@@ -82,21 +83,24 @@ html, body {
 #header {
   width: 100vw;
   position: fixed;
-  background: black;
+  background: white;
   height: 5vh;
-  text-align: center; }
+  text-align: center;
+  display: none; }
 
 #footer {
   width: 100vw;
   position: fixed;
   background: black;
-  height: 5vh;
+  height: 35px;
   bottom: 0px;
-  text-align: center; }
+  text-align: center;
+  color: white; }
 
 #logo {
   width: 250px;
-  padding-top: 10px; }
+  padding-top: 10px;
+  position: fixed; }
 
 nav {
   display: -webkit-box;
@@ -107,16 +111,15 @@ nav {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  left: 25px;
-  top: 35px;
+  left: 2vw;
+  top: 2vh;
   position: fixed;
-  z-index: 99;
-  background: white; }
+  z-index: 99; }
   nav hr {
     margin: 5px 0 10px 0;
     border-color: black; }
   nav a {
-    padding: 8px 0;
+    padding: 5px 0;
     text-align: left;
     text-decoration: none;
     background-color: transparent !important; }
@@ -131,7 +134,8 @@ nav {
       text-transform: uppercase;
       font-family: "GraphikReg", sans-serif;
       padding: 7px 12px;
-      background-color: #FFF !important; }
+      background-color: yellow !important;
+      height: 40px; }
     nav a.yellow {
       background-color: #fff200; }
     nav a:link {
@@ -278,8 +282,8 @@ nav {
             #container #cube .face.photos .photo-item .photo-slideshow li:not(:first-child) .caption {
               width: 80%; }
               #container #cube .face.photos .photo-item .photo-slideshow li:not(:first-child) .caption p {
-                letter-spacing: 2px;
-                word-spacing: -3px; }
+                letter-spacing: 0px;
+                word-spacing: 0px; }
             #container #cube .face.photos .photo-item .photo-slideshow li .caption {
               width: 43%;
               height: 90%;
@@ -391,7 +395,7 @@ nav {
               position: absolute;
               right: 30px;
               bottom: 15px;
-              font-family: "Goff";
+              font-family: "GraphikReg", sans-serif;
               font-size: 2em; }
       #container #cube .face .lock {
         position: absolute;
