@@ -20,12 +20,26 @@ html,body {
 $iw: 612px;
 $ih: 612px;
 
+#header {
+    width: 100vw;
+    position: fixed;
+    background:black;
+    height:5vh;
+    text-align:center;
+}
+
+#footer {
+    width: 100vw;
+    position: fixed;
+    background:black;
+    height:5vh;
+    bottom:0px;
+    text-align:center;
+}
 
 #logo {
-    position:fixed;
-    bottom: 25px;
-    left: 20px;
     width:250px;
+    padding-top:10px;
 }
 
 

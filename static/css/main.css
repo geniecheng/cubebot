@@ -79,11 +79,24 @@ html, body {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 
-#logo {
+#header {
+  width: 100vw;
   position: fixed;
-  bottom: 25px;
-  left: 20px;
-  width: 250px; }
+  background: black;
+  height: 5vh;
+  text-align: center; }
+
+#footer {
+  width: 100vw;
+  position: fixed;
+  background: black;
+  height: 5vh;
+  bottom: 0px;
+  text-align: center; }
+
+#logo {
+  width: 250px;
+  padding-top: 10px; }
 
 nav {
   display: -webkit-box;
@@ -190,8 +203,8 @@ nav {
   position: fixed;
   left: 50%;
   top: 50%;
-  margin-left: -42.5vh;
-  margin-top: -42.5vh;
+  margin-left: -37.5vh;
+  margin-top: -37.5vh;
   z-index: 1; }
   #container #intermediary {
     perspective: 3000px;
@@ -207,14 +220,14 @@ nav {
     list-style-type: none;
     margin: 0;
     opacity: 1;
-    width: 85vh;
-    height: 85vh;
+    width: 75vh;
+    height: 75vh;
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
-    -webkit-transform: translateZ(-42.5vh);
-    -moz-transform: translateZ(-42.5vh);
-    -ms-transform: translateZ(-42.5vh);
-    transform: translateZ(-42.5vh); }
+    -webkit-transform: translateZ(-37.5vh);
+    -moz-transform: translateZ(-37.5vh);
+    -ms-transform: translateZ(-37.5vh);
+    transform: translateZ(-37.5vh); }
     #container #cube.ready {
       opacity: 1; }
     #container #cube.smoothing {
@@ -392,35 +405,35 @@ nav {
           width: 20px;
           height: 20px; }
       #container #cube .face.front {
-        -webkit-transform: translateZ(42.5vh);
-        -moz-transform: translateZ(42.5vh);
-        -ms-transform: translateZ(42.5vh);
-        transform: translateZ(42.5vh); }
+        -webkit-transform: translateZ(37.5vh);
+        -moz-transform: translateZ(37.5vh);
+        -ms-transform: translateZ(37.5vh);
+        transform: translateZ(37.5vh); }
       #container #cube .face.right {
-        -webkit-transform: translateX(42.5vh) rotateY(90deg);
-        -moz-transform: translateX(42.5vh) rotateY(90deg);
-        -ms-transform: translateX(42.5vh) rotateY(90deg);
-        transform: translateX(42.5vh) rotateY(90deg); }
+        -webkit-transform: translateX(37.5vh) rotateY(90deg);
+        -moz-transform: translateX(37.5vh) rotateY(90deg);
+        -ms-transform: translateX(37.5vh) rotateY(90deg);
+        transform: translateX(37.5vh) rotateY(90deg); }
       #container #cube .face.back {
-        -webkit-transform: translateZ(-42.5vh) rotateY(180deg);
-        -moz-transform: translateZ(-42.5vh) rotateY(180deg);
-        -ms-transform: translateZ(-42.5vh) rotateY(180deg);
-        transform: translateZ(-42.5vh) rotateY(180deg); }
+        -webkit-transform: translateZ(-37.5vh) rotateY(180deg);
+        -moz-transform: translateZ(-37.5vh) rotateY(180deg);
+        -ms-transform: translateZ(-37.5vh) rotateY(180deg);
+        transform: translateZ(-37.5vh) rotateY(180deg); }
       #container #cube .face.left {
-        -webkit-transform: translateX(-42.5vh) rotateY(-90deg);
-        -moz-transform: translateX(-42.5vh) rotateY(-90deg);
-        -ms-transform: translateX(-42.5vh) rotateY(-90deg);
-        transform: translateX(-42.5vh) rotateY(-90deg); }
+        -webkit-transform: translateX(-37.5vh) rotateY(-90deg);
+        -moz-transform: translateX(-37.5vh) rotateY(-90deg);
+        -ms-transform: translateX(-37.5vh) rotateY(-90deg);
+        transform: translateX(-37.5vh) rotateY(-90deg); }
       #container #cube .face.top {
-        -webkit-transform: translateY(-42.5vh) rotateX(90deg);
-        -moz-transform: translateY(-42.5vh) rotateX(90deg);
-        -ms-transform: translateY(-42.5vh) rotateX(90deg);
-        transform: translateY(-42.5vh) rotateX(90deg); }
+        -webkit-transform: translateY(-37.5vh) rotateX(90deg);
+        -moz-transform: translateY(-37.5vh) rotateX(90deg);
+        -ms-transform: translateY(-37.5vh) rotateX(90deg);
+        transform: translateY(-37.5vh) rotateX(90deg); }
       #container #cube .face.bottom {
-        -webkit-transform: translateY(42.5vh) rotateX(-90deg);
-        -moz-transform: translateY(42.5vh) rotateX(-90deg);
-        -ms-transform: translateY(42.5vh) rotateX(-90deg);
-        transform: translateY(42.5vh) rotateX(-90deg); }
+        -webkit-transform: translateY(37.5vh) rotateX(-90deg);
+        -moz-transform: translateY(37.5vh) rotateX(-90deg);
+        -ms-transform: translateY(37.5vh) rotateX(-90deg);
+        transform: translateY(37.5vh) rotateX(-90deg); }
 
 #credits {
   position: fixed;
