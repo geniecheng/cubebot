@@ -81,8 +81,8 @@ html, body {
 
 #logo {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  bottom: 25px;
+  left: 20px;
   width: 250px; }
 
 nav {
@@ -424,7 +424,7 @@ nav {
 
 #credits {
   position: fixed;
-  left: 40px;
+  right: 40px;
   bottom: 40px;
   width: 5vw;
   font-size: 13px;
@@ -547,7 +547,7 @@ html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
 
 @media screen and (max-width: 320px) {
   #container #cube .face.photos .photo-item .photo-slideshow li .caption {
-    width: 100%;
+    width: 95%;
     padding: 5px 0 0 10px; }
     #container #cube .face.photos .photo-item .photo-slideshow li .caption h1 {
       font-size: 13px; }

@@ -23,10 +23,12 @@ $ih: 612px;
 
 #logo {
     position:fixed;
-    right:20px;
-    bottom:20px;
+    bottom: 25px;
+    left: 20px;
     width:250px;
 }
+
+
 
 nav {
     @include flexbox();
@@ -399,7 +401,7 @@ $kw: 60px;
 
 #credits {
     position:fixed;
-    left:40px;
+    right:40px;
     bottom:40px;
     width:5vw;
     font-size:13px;
@@ -556,7 +558,7 @@ html[data-useragent*='MSIE 10.0'] {
 
     #container #cube .face.photos .photo-item .photo-slideshow li {
         .caption {
-            width:100%;
+            width:95%;
             padding:5px 0 0 10px;
 
             h1 {
