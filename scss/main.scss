@@ -20,14 +20,6 @@ html,body {
 $iw: 612px;
 $ih: 612px;
 
-#header {
-    width: 100vw;
-    position: fixed;
-    background:white;
-    height:5vh;
-    text-align:center;
-    display:none;
-}
 
 #footer {
     width: 100vw;
@@ -40,9 +32,11 @@ $ih: 612px;
 }
 
 #logo {
-    width:250px;
-    padding-top:10px;
+    width:440px;
     position:fixed;
+    left:50%;
+    margin-left:-220px;
+    top:5vh;
 }
 
 

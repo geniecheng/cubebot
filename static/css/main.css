@@ -80,14 +80,6 @@ html, body {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 
-#header {
-  width: 100vw;
-  position: fixed;
-  background: white;
-  height: 5vh;
-  text-align: center;
-  display: none; }
-
 #footer {
   width: 100vw;
   position: fixed;
@@ -98,9 +90,11 @@ html, body {
   color: white; }
 
 #logo {
-  width: 250px;
-  padding-top: 10px;
-  position: fixed; }
+  width: 440px;
+  position: fixed;
+  left: 50%;
+  margin-left: -220px;
+  top: 5vh; }
 
 nav {
   display: -webkit-box;
