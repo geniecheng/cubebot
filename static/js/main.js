@@ -10,6 +10,7 @@ var deltaX = 0;
 var lDeltaX = 0;
 var deltaY = 0;
 var lDeltaY = 0;
+var bgX=0; var bgY=0;
 var timer;
 
 // rotation index
@@ -194,9 +195,15 @@ function delegate(evt){
             if(keyed) break;
 
             if(suppress){
+                bgX += -lDeltaX;
+                bgY += -lDeltaY;
+                $('body').css('background-position-x',bgX)
+                         .css('background-position-y',bgY);
+
                 suppress = false;
                 lDeltaX = 0;
                 lDeltaY = 0;
+                break;
             }
 
             clearTimeout(timer);
