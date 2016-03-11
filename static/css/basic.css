@@ -16,7 +16,7 @@ html, body {
 
 #advanced {
   top: 10px;
-  display: block; }
+  display: none; }
 
 .lock {
   display: none; }
@@ -39,8 +39,8 @@ html, body {
     width: auto;
     height: auto; }
     #container #cube .face {
-      width: 95vh;
-      height: 95vh;
+      width: 85vh;
+      height: 85vh;
       -webkit-transform: none !important;
       -moz-transform: none !important;
       -ms-transform: none !important;
@@ -50,10 +50,10 @@ html, body {
         margin-bottom: 5vh; }
       #container #cube .face.photos .photo-item {
         margin: 0;
-        padding: 4% 0 0 4%; }
+        padding: 0% 0 0 0%; }
       #container #cube .face.solution .solution-item {
         margin: 0;
-        padding: 4% 0 0 4%; }
+        padding: 0% 0 0 0%; }
 
 @media screen and (max-width: 768px) {
   #advanced {

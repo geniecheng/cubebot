@@ -15,7 +15,7 @@ html,body {
 
 #advanced {
     top:10px;
-    display:block;
+    display:none;
 }
 
 .lock {
@@ -41,8 +41,8 @@ html,body {
         height:auto;
 
         .face {
-            width:95vh;
-            height:95vh;
+            width:85vh;
+            height:85vh;
 
             &:not(:last-of-type) {
                 margin-bottom:5vh;
@@ -53,12 +53,12 @@ html,body {
 
             &.photos .photo-item{
                 margin:0;
-                padding: 4% 0 0 4%;
+                padding: 0% 0 0 0%;
             }
 
             &.solution .solution-item {
                 margin:0;
-                padding: 4% 0 0 4%;
+                padding: 0% 0 0 0%;
             }
         }
     }

@@ -5,9 +5,8 @@ html,body {
 
     width:50000px;
     height:50000px;
-    background-image:url(/img/dot.jpg);
-    background-size: 10px 10px;
-
+    background-image: url('../img/cubebot-background-bright.gif'); 
+    background-position:center;
     font-family:Arial;
 
     //-webkit-font-smoothing: antialiased;
@@ -22,19 +21,32 @@ $iw: 612px;
 $ih: 612px;
 
 
-#logo {
-    position:fixed;
-    left:10px;
-    bottom:10px;
-    width:15vw;
+#footer {
+    width: 100vw;
+    position: fixed;
+    background:black;
+    height:35px;
+    bottom:0px;
+    text-align:center;
+    color:white;
 }
+
+#logo {
+    width:440px;
+    position:fixed;
+    left:50%;
+    margin-left:-220px;
+    top:5vh;
+}
+
+
 
 nav {
     @include flexbox();
     @include direction(column);
 
-    left:25px;
-    top:35px;
+    left:2vw;
+    top:2vh;
     position:fixed;
     z-index:99;
 
@@ -44,8 +56,8 @@ nav {
     }
 
     a {
-        padding: 8px 0;
-        text-align:center;
+        padding: 5px 0;
+        text-align:left;
         text-decoration: none;
         background-color:transparent !important;
 
@@ -57,7 +69,8 @@ nav {
             text-transform:uppercase;
             font-family: $graphik;
             padding: 7px 12px;
-            background-color:#FFF !important;
+            background-color:yellow !important;
+            height:40px;
         }
 
         &.yellow {
@@ -93,6 +106,7 @@ nav {
     font-family: $graphik;
     text-align:center;
     font-size:13px;
+    display:none;
 
     a:link, a:visited {
         color:black;
@@ -114,6 +128,7 @@ $kw: 60px;
     top:3%;
     list-style-type:none;
     z-index:99;
+     display:none;
 
     @extend .noselect;
 
@@ -198,10 +213,10 @@ $kw: 60px;
 
                 .photo-item {
 
-                    width:92%;
-                    height:92%;
-                    margin-top:4%;
-                    margin-left:4%;
+                    width:100%;
+                    height:100%;
+                    margin-top:0%;
+                    margin-left:0%;
 
                     @extend .noselect;
 
@@ -230,8 +245,8 @@ $kw: 60px;
                                 width:80%;
 
                                 p {
-                                    letter-spacing: 2px;
-                                    word-spacing: -3px;
+                                    letter-spacing: 0px;
+                                    word-spacing: 0px;
                                 }
                             }
 
@@ -243,15 +258,15 @@ $kw: 60px;
                                 overflow:auto;
 
                                 h1 {
-                                    font-family:$goff;
+                                    font-family:$graphik;
                                     font-weight:normal;
                                     font-size:20px;
                                     margin-top:0;
-                                    letter-spacing: 2px;
+                                    letter-spacing: 0px;
                                 }
 
                                 p {
-                                    font-family: $goff;
+                                    font-family: $graphik;
                                     font-weight: bold;
                                 }
                             }
@@ -332,10 +347,10 @@ $kw: 60px;
             &.solution {
 
                 .solution-item {
-                    width:92%;
-                    height:92%;
-                    margin-top:4%;
-                    margin-left:4%;
+                    width:100%;
+                    height:100%;
+                    margin-top:0;
+                    margin-left:0;
 
                     @extend .noselect;
 
@@ -364,8 +379,8 @@ $kw: 60px;
                                 position:absolute;
                                 right:30px;
                                 bottom:15px;
-                                font-family:$goff;
-                                font-size:60px;
+                                font-family:$graphik;
+                                font-size:2em;
 
                                 @extend .noselect;
                             }
@@ -381,6 +396,7 @@ $kw: 60px;
                 width:20px;
                 cursor:pointer;
                 z-index:100;
+                display:none;
 
                 svg {
                     width:20px;
@@ -396,11 +412,14 @@ $kw: 60px;
 
 #credits {
     position:fixed;
-    right:10px;
-    bottom:5px;
+    right:40px;
+    bottom:40px;
+    width:5vw;
     font-size:13px;
     font-family:$graphik;
     z-index:0;
+    background:white;
+    padding:10px;
 
     a {
         &:link,&:visited {
@@ -491,7 +510,7 @@ html[data-useragent*='MSIE 10.0'] {
     }
 
     #logo {
-        width:45vw;
+        width:300px;
     }
 
 
