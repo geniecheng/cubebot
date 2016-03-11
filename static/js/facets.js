@@ -37,7 +37,7 @@ var Gram = Backbone.Model.extend({
     truncate:20,
     template: _.template(
         "<img class='pic' src='<%= o.get('photo') %>'>"+
-        "<a href='https://www.instagram.com/<%= o.get('user') %>/' target='_blank'>"+
+        "<a href='<%= o.get('url') %>' target='_blank'>"+
         "<p class='caption'><%= o.get_caption() %></p>"+
         "</a>"
     ),
@@ -79,7 +79,7 @@ var InstagramView = Backbone.View.extend({
 var Instagram = Backbone.View.extend({
     tagName:'li',
     className:'instagram',
-    limit:4,
+    limit:9,
     initialize: function (opts){
         this.items = new Grams({limit:this.limit});
         this.items.fetch();
@@ -100,9 +100,6 @@ var Instagram = Backbone.View.extend({
 
             container.append($ele);
         },this));
-
-        var lock = $("<div class='lock' data-face='"+this.face+"'>"+rotate_svg+"</div>");
-        this.$el.append(lock);
 
         return this;
     }
@@ -160,9 +157,6 @@ var Youtube = Backbone.View.extend({
 
             this.$el.append($ele);
         },this));
-
-        var lock = $("<div class='lock' data-face='"+this.face+"'>"+rotate_svg+"</div>");
-        this.$el.append(lock);
 
         return this;
     }
@@ -307,9 +301,6 @@ var Solution = Backbone.View.extend({
             .addClass('active')
             .css('z-index',1);
 
-        var lock = $("<div class='lock' data-face='"+this.face+"'>"+rotate_svg+"</div>");
-        this.$el.append(lock);
-
         // store slideshow container for contextual cursor
         this.$slideshow = this.$el.find('.solution-slideshow');
 
@@ -340,9 +331,6 @@ var Static = Backbone.View.extend({
         if(this.item.models.length){
             this.$el.html(this.item.models[0].get('html'))
         }
-
-        var lock = $("<div class='lock' data-face='"+this.face+"'>"+rotate_svg+"</div>");
-        this.$el.append(lock);
 
         return this;
     }
@@ -493,9 +481,6 @@ var Photos = Backbone.View.extend({
             .first()
             .addClass('active')
             .css('z-index',1);
-
-        var lock = $("<div class='lock' data-face='"+this.face+"'>"+rotate_svg+"</div>");
-        this.$el.append(lock);
 
         // store slideshow container for contextual cursor
         this.$slideshow = this.$el.find('.photo-slideshow');

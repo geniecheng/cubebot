@@ -1,37 +1,18 @@
 
 var $w = $(window);
-var w = 50000;
-var h = 50000;
 var $cube;
 var cube;
 
-// scroll delta
-var deltaX = 0;
-var lDeltaX = 0;
-var deltaY = 0;
-var lDeltaY = 0;
-var timer;
-
-// rotation index
 var x = 0;
 var y = 0;
-var z = 47.5;
+var z = 37.5;
 
-// state booleans
-var suppress = false;
-var keyed = false;
 var ua = window.navigator.userAgent;
 var ie = (ua.indexOf('MSIE') + ua.indexOf('Triden')>-2);
 var ieFaces = [];
 
-var initial = true;
 
-var keyMap = {
-    37:'left',
-    38:'up',
-    39:'right',
-    40:'down'
-}
+var initial = true;
 
 var rotationMap = {
     'front': [0,0],
@@ -59,14 +40,6 @@ var ieCubeMap = {
     'bottom':'rotateX(-90deg) translateZ('+z+'vh)'
 }
 
-window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame       ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame    ||
-          function( callback ){
-            window.setTimeout(callback, 1000 / 60);
-          };
-})();
 
 function transEnd(){
     if(ie)
@@ -74,20 +47,12 @@ function transEnd(){
     else
         $cube.removeClass('smoothing');
 
-    keyed = false;
-
-    // reset deltas when realligning cube to grid
-    lDeltaX = 0;
-    lDeltaY = 0;
-    window.scrollTo(w/2, h/2);
-
     $(window).trigger('anim-done');
 }
 
 function orientCube(evt){
     evt.preventDefault();
 
-    keyed = true;
     var face;
 
     if(!$(evt.target).data('face'))
@@ -158,56 +123,6 @@ function transform(x,y){
     }
 }
 
-function delegate(evt){
-    switch(evt.type){
-        case 'keydown':
-        if(typeof keyMap[evt.keyCode] == "undefined") break;
-            keyed = true;
-
-            if(ie)
-                $cube.find('.face').addClass('smoothing');
-            else
-                $cube.addClass('smoothing');
-
-            switch(keyMap[evt.keyCode]){
-                case 'up':
-                    y -= 90;
-                    break;
-                case 'down':
-                    y += 90;
-                    break;
-                case 'left':
-                    x += 90;
-                    break;
-                case 'right':
-                    x -= 90;
-                    break;
-            }
-
-            x = 90 * Math.round(x / 90);
-            y = 90 * Math.round(y / 90);
-
-            transform(x,y);
-        break;
-
-        case 'scroll':
-            if(keyed) break;
-
-            if(suppress){
-                suppress = false;
-                lDeltaX = 0;
-                lDeltaY = 0;
-            }
-
-            clearTimeout(timer);
-            timer = setTimeout(function (){
-                suppress = true;
-                window.scrollTo(w/2, h/2);
-            },250);
-        break;
-    }
-}
-
 
 /* get a random face for og & twitter image */
 $.getJSON(URL+'/photography/',function (data){
@@ -226,10 +141,6 @@ $(function (){
     setTimeout(function (){
         initial=false;
     },200);
-
-    window.scrollTo(w/2, h/2);
-    lDeltaX = 0;
-    lDeltaY = 0;
 
     var $shop = $('nav');
     var $container = $('#container');
@@ -288,53 +199,6 @@ $(function (){
             $cube.on(transEndStr, transEnd);
     });
 
-    $('#keyMap').on('mouseup', function (evt){
-        var idx = $(evt.target).index();
-        var fake = {type:'keydown',keyCode: 37 + idx};
-        delegate(fake);
-    });
 
-    /* potential spin animation
-    $('#note > a').on('click', function (evt){
-        evt.preventDefault();
-
-        //$cube.addClass('spin');
-        var v = 50;
-        var y = _.random(w*0.25,v*0.75);
-        var x = _.random(w*0.25,v*0.75);
-        suppress=true;
-        $('html, body').animate({
-            scrollTop: y,
-            scrollLeft: x
-        }, 5000, function (){ suppress=false;});
-    });*/
-
-    if(!isMobile()){
-        /* face focusing utils */
-        $(document).on('click','.lock',orientCube)
-                   .on('click','.face-nav',orientCube)
-                   .on('scroll keydown',delegate);
-
-        var freeScroll = function (){
-            window.requestAnimFrame(freeScroll);
-            if(keyed) return;
-
-            if(!suppress){
-                var _x = ($w.scrollLeft()-w/2);
-                var _y = ($w.scrollTop()-h/2);
-
-                if(_x == lDeltaX && _y == lDeltaY) return;
-
-                x +=  (_x - lDeltaX) * 0.1;
-                y +=  (_y - lDeltaY) * 0.1;
-
-                lDeltaX = _x; lDeltaY = _y;
-
-                transform(x,y);
-            }
-        }
-        window.requestAnimFrame(freeScroll);
-    }else{
-        $(document).on('click','.face-nav',orientCube);
-    }
+    $(document).on('click','.face-nav',orientCube);
 });
