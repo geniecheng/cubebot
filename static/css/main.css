@@ -23,36 +23,28 @@
 
 .front {
   background-color: #2ed03c; }
-  .front svg path {
-    fill: #FFF; }
   .front:hover span {
-    color: #2ed03c; }
+    color: white; }
 
 .right {
   background-color: #7859b1; }
-  .right svg path {
-    fill: #FFF; }
   .right:hover span {
-    color: #7859b1; }
+    color: white; }
 
 .back {
   background-color: #006666; }
-  .back svg path {
-    fill: #FFF; }
   .back:hover span {
-    color: #006666; }
+    color: white; }
 
 .left {
   background-color: #FF99CC; }
   .left:hover span {
-    color: #FF99CC; }
+    color: white; }
 
 .top {
   background-color: black; }
-  .top svg path {
-    fill: #FFF; }
   .top:hover span {
-    color: #FFF; }
+    color: white; }
 
 .bottom {
   background-color: white; }
@@ -64,7 +56,8 @@ html, body {
   background-image: url("../img/cubebot-background-bright.gif");
   font-family: Arial;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  min-width: 960px; }
 
 @-moz-keyframes spin {
   100% {
@@ -86,7 +79,8 @@ footer {
   height: 35px;
   bottom: 0px;
   text-align: center;
-  color: white; }
+  color: white;
+  font-family: "GraphikReg", sans-serif; }
   footer ul {
     display: -webkit-box;
     display: -moz-box;
@@ -99,14 +93,18 @@ footer {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    width: 40%;
-    margin: 0 30%;
+    width: 35%;
+    margin: 0 35%;
     padding: 0;
     height: 100%; }
     footer ul li {
       display: inline-block; }
       footer ul li a {
-        color: #FFF; }
+        color: #FFF;
+        text-decoration: none;
+        transition: color .25s ease-in-out; }
+        footer ul li a:hover {
+          color: yellow; }
 
 section {
   display: -webkit-box;
@@ -149,10 +147,11 @@ nav {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    transition: background-color .2s ease-in-out;
     width: 125px;
     height: 60px;
     text-decoration: none;
-    background-color: yellow !important;
+    background-color: yellow;
     margin-bottom: 10px; }
     nav a span {
       -webkit-transition: color 0.3s;
@@ -168,9 +167,8 @@ nav {
       color: #000; }
     nav a:visited {
       color: #000; }
-    nav a:hover span {
-      color: blue;
-      border-color: blue; }
+    nav a:hover {
+      background-color: white; }
 
 #main-col {
   display: -webkit-box;
@@ -201,7 +199,7 @@ nav {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    height: 15%;
+    height: 10%;
     width: 100%;
     margin-left: -13%; }
     #main-col header #logo {
@@ -298,17 +296,18 @@ nav {
                 width: 43%;
                 height: 90%;
                 padding: 35px 0 0 45px;
-                line-height: 25px;
+                line-height: 1.5;
                 overflow: auto; }
                 #main-col #container #cube .face.photos .photo-item .photo-slideshow li .caption h1 {
                   font-family: "GraphikReg", sans-serif;
                   font-weight: normal;
-                  font-size: 20px;
+                  font-size: 2.5vh;
                   margin-top: 0;
                   letter-spacing: 0px; }
                 #main-col #container #cube .face.photos .photo-item .photo-slideshow li .caption p {
                   font-family: "GraphikReg", sans-serif;
-                  font-weight: bold; }
+                  font-weight: bold;
+                  font-size: 2vh; }
         #main-col #container #cube .face.instagram {
           /* 2x2 grid */ }
           #main-col #container #cube .face.instagram .photo {
@@ -406,7 +405,7 @@ nav {
                 right: 30px;
                 bottom: 15px;
                 font-family: "GraphikReg", sans-serif;
-                font-size: 2em; }
+                font-size: 2vh; }
         #main-col #container #cube .face.front {
           -webkit-transform: translateZ(37.5vh);
           -moz-transform: translateZ(37.5vh);
@@ -439,135 +438,13 @@ nav {
           transform: translateY(37.5vh) rotateX(-90deg); }
 
 .graphik-reg {
-  font-family: "GraphikReg", sans-serif !important; }
+  font-family: "GraphikReg", sans-serif; }
 
 .graphik-med {
-  font-family: "graphikMed" !important; }
+  font-family: "graphikMed"; }
 
 html[data-useragent*='MSIE 10.0'] nav a {
   float: left; }
 
 html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
   display: block; }
-
-/*
-@media screen and (max-width: 768px) {
-    html,body {
-        width:100vw;
-        height:100vh;
-    }
-
-    nav {
-        display:block;
-        left:5vw;
-        top:5px;
-        width:95vw;
-
-        hr {
-            display:none;
-        }
-
-        a {
-            font-size:12px;
-            margin-left:10px;
-            margin-bottom:10px;
-            max-width:100%;
-            float:left;
-            padding:0;
-
-            span {
-                padding: 15px 18px;
-            }
-        }
-    }
-
-    #logo {
-        width:300px;
-    }
-
-
-    $w: 90vw;
-    $h: $w;
-    #container {
-        left:50vw;
-        top:55vh;
-        margin-left: -($w/2);
-        margin-top: -($h/2);
-
-        #cube {
-            width:$w;
-            height:$h;
-
-            .face {
-
-                &.solution .solution-item .solution-slideshow li {
-                    .caption {
-                        font-size:35px;
-                        right:25px;
-                        bottom:10px;
-                    }
-                }
-
-                &.photos .photo-item .photo-slideshow li {
-                    .caption {
-                        padding:15px;
-                        width:70%;
-
-                        h1 {
-                            margin:0;
-                            font-size:16px;
-                        }
-
-                        p {
-                            font-size:12px;
-                            line-height:13px;
-                            margin-top:5px;
-                        }
-                    }
-                }
-
-                .lock {
-                    display:none;
-                }
-
-                @include faces($w);
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 320px) {
-
-    #container #cube .face.photos .photo-item .photo-slideshow li {
-        .caption {
-            width:95%;
-            padding:5px 0 0 10px;
-
-            h1 {
-                font-size: 13px;
-            }
-
-            p {
-                margin-top:0px;
-                font-size:11px;
-            }
-        }
-    }
-
-    nav {
-        top:5px;
-
-        hr {
-            height:35px;
-        }
-
-        a {
-            font-size:10px;
-            margin-left:5px;
-        }
-    }
-
-    #credits {
-        font-size:12px;
-    }
-}*/

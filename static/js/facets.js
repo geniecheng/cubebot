@@ -524,7 +524,7 @@ $(function (){
     Cube = Backbone.View.extend({
         tagName:'ul',
         id:'cube',
-        navTemplate:_.template("<a href='#<%= face %>' class='face-nav <%= face %>' data-face='<%= face %>'><span data-face='<%= face %>'><%= label %></span></a>"),
+        navTemplate:_.template("<a href='#<%= face %>' class='face-nav' data-face='<%= face %>'><span data-face='<%= face %>'><%= label %></span></a>"),
         initialize: function (){
             /* get cube configuration from backend */
             this.config = new Configuration();

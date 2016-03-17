@@ -38,65 +38,49 @@ $goff: 'Goff';
                                   not supported by any browser */
 }
 
+
 .front {
     background-color:$front-face-bgcolor;
 
-    svg path {
-        fill:$front-face-svg
-    }
-
     &:hover span {
-        color:$front-face-bgcolor;
+        color:white;
     }
 }
 .right {
     background-color:$right-face-bgcolor;
 
-    svg path {
-        fill:$right-face-svg
-    }
-
     &:hover span {
-        color:$right-face-bgcolor;
+        color:white;
     }
 }
 .back {
     background-color:$back-face-bgcolor;
 
-    svg path {
-        fill:$back-face-svg
-    }
-
     &:hover span {
-        color:$back-face-bgcolor;
+        color:white;
     }
 }
 .left {
     background-color:$left-face-bgcolor;
 
     &:hover span {
-        color:$left-face-bgcolor;
+        color:white;
     }
 }
 .top {
     background-color:$top-face-bgcolor;
 
-    svg path {
-        fill:$top-face-svg
-    }
-
     &:hover span {
-        color:$top-face-svg;
+        color:white;
     }
 }
 .bottom {
     background-color:$bottom-face-bgcolor;
 
     &:hover span {
-        color:$bottom-face-bgcolor;
+        color:white;
     }
 }
-
 
 @mixin faces($w){
     &.front {

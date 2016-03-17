@@ -6,6 +6,7 @@ html,body {
     font-family:Arial;
     height:100%;
     width:100%;
+    min-width:960px;
 }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
@@ -25,14 +26,15 @@ footer {
     bottom:0px;
     text-align:center;
     color:white;
+    font-family:$graphik;
 
     ul {
         @include flexbox();
         @include justify(space-between);
         @include align(center);
 
-        width:40%;
-        margin:0 30%;
+        width:35%;
+        margin:0 35%;
         padding:0;
         height:100%;
 
@@ -41,6 +43,12 @@ footer {
 
             a {
                 color:#FFF;
+                text-decoration: none;
+                transition: color .25s ease-in-out;
+
+                &:hover {
+                    color:yellow;
+                }
             }
         }
     }
@@ -74,12 +82,13 @@ nav {
         @include flexbox();
         @include justify(center);
         @include align(center);
+        transition:background-color .2s ease-in-out;
 
         width:125px;
         height:60px;
 
         text-decoration: none;
-        background-color:yellow !important;
+        background-color:yellow;
         margin-bottom: 10px;
 
         span {
@@ -100,10 +109,7 @@ nav {
         }
 
         &:hover {
-            span {
-                color:$hover-color;
-                border-color:$hover-color;
-            }
+            background-color:white;
         }
     }
 }
@@ -122,7 +128,7 @@ nav {
         @include align(center);
         @include justify(center);
 
-        height:15%;
+        height:10%;
         width:100%;
         margin-left:-13%;
 
@@ -228,13 +234,13 @@ nav {
                                     width:43%;
                                     height:90%;
                                     padding: 35px 0 0 45px;
-                                    line-height:25px;
+                                    line-height:1.5;
                                     overflow:auto;
 
                                     h1 {
                                         font-family:$graphik;
                                         font-weight:normal;
-                                        font-size:20px;
+                                        font-size:2.5vh;
                                         margin-top:0;
                                         letter-spacing: 0px;
                                     }
@@ -242,6 +248,7 @@ nav {
                                     p {
                                         font-family: $graphik;
                                         font-weight: bold;
+                                        font-size:2vh;
                                     }
                                 }
                             }
@@ -354,7 +361,7 @@ nav {
                                     right:30px;
                                     bottom:15px;
                                     font-family:$graphik;
-                                    font-size:2em;
+                                    font-size:2vh;
 
                                     @extend .noselect;
                                 }
@@ -371,10 +378,10 @@ nav {
 }
 
 .graphik-reg {
-    font-family:$graphik !important;
+    font-family:$graphik;
 }
 .graphik-med {
-    font-family: $graphikMed !important;
+    font-family: $graphikMed;
 }
 
 html[data-useragent*='MSIE 10.0'] {
@@ -392,125 +399,3 @@ html[data-useragent*='MSIE 10.0'] {
         }
     }
 }
-
-/*
-@media screen and (max-width: 768px) {
-    html,body {
-        width:100vw;
-        height:100vh;
-    }
-
-    nav {
-        display:block;
-        left:5vw;
-        top:5px;
-        width:95vw;
-
-        hr {
-            display:none;
-        }
-
-        a {
-            font-size:12px;
-            margin-left:10px;
-            margin-bottom:10px;
-            max-width:100%;
-            float:left;
-            padding:0;
-
-            span {
-                padding: 15px 18px;
-            }
-        }
-    }
-
-    #logo {
-        width:300px;
-    }
-
-
-    $w: 90vw;
-    $h: $w;
-    #container {
-        left:50vw;
-        top:55vh;
-        margin-left: -($w/2);
-        margin-top: -($h/2);
-
-        #cube {
-            width:$w;
-            height:$h;
-
-            .face {
-
-                &.solution .solution-item .solution-slideshow li {
-                    .caption {
-                        font-size:35px;
-                        right:25px;
-                        bottom:10px;
-                    }
-                }
-
-                &.photos .photo-item .photo-slideshow li {
-                    .caption {
-                        padding:15px;
-                        width:70%;
-
-                        h1 {
-                            margin:0;
-                            font-size:16px;
-                        }
-
-                        p {
-                            font-size:12px;
-                            line-height:13px;
-                            margin-top:5px;
-                        }
-                    }
-                }
-
-                .lock {
-                    display:none;
-                }
-
-                @include faces($w);
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 320px) {
-
-    #container #cube .face.photos .photo-item .photo-slideshow li {
-        .caption {
-            width:95%;
-            padding:5px 0 0 10px;
-
-            h1 {
-                font-size: 13px;
-            }
-
-            p {
-                margin-top:0px;
-                font-size:11px;
-            }
-        }
-    }
-
-    nav {
-        top:5px;
-
-        hr {
-            height:35px;
-        }
-
-        a {
-            font-size:10px;
-            margin-left:5px;
-        }
-    }
-
-    #credits {
-        font-size:12px;
-    }
-}*/

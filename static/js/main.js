@@ -159,34 +159,6 @@ $(function (){
         css.setAttribute('type','text/css');
         document.getElementsByTagName("head")[0].appendChild(css);
 
-        $(document).on('cube-rendered', function (){
-            $cube.find('.face').each(function (){
-                var o = $(this);
-                var f = o.data('face');
-                o.before('<li><a name="'+f+'"></a></li>');
-            });
-        });
-
-        var nav_h = $('nav').height();
-        $('nav').on('click', 'a', function (evt){
-            evt.preventDefault();
-
-            var face;
-            if(!$(evt.target).data('face'))
-                face = $(evt.target).parents('div.lock').data('face');
-            else
-                face = $(evt.target).data('face');
-
-            // if face contains a slideshow, reset
-            if(typeof objBin[face].slideshow !== "undefined" && objBin[face].slideshow){
-                objBin[face].first();
-            }
-
-            $('html, body').animate({
-                scrollTop: $('li.'+face).offset().top - (isMobile()?nav_h:0),
-            }, 750, function (){ suppress=false;});
-        });
-
         return;
     }
 

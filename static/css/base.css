@@ -23,36 +23,28 @@
 
 .front {
   background-color: #2ed03c; }
-  .front svg path {
-    fill: #FFF; }
   .front:hover span {
-    color: #2ed03c; }
+    color: white; }
 
 .right {
   background-color: #7859b1; }
-  .right svg path {
-    fill: #FFF; }
   .right:hover span {
-    color: #7859b1; }
+    color: white; }
 
 .back {
   background-color: #006666; }
-  .back svg path {
-    fill: #FFF; }
   .back:hover span {
-    color: #006666; }
+    color: white; }
 
 .left {
   background-color: #FF99CC; }
   .left:hover span {
-    color: #FF99CC; }
+    color: white; }
 
 .top {
   background-color: black; }
-  .top svg path {
-    fill: #FFF; }
   .top:hover span {
-    color: #FFF; }
+    color: white; }
 
 .bottom {
   background-color: white; }
