@@ -405,7 +405,7 @@ nav {
                 right: 30px;
                 bottom: 15px;
                 font-family: "GraphikReg", sans-serif;
-                font-size: 2vh; }
+                font-size: 3vh; }
         #main-col #container #cube .face.front {
           -webkit-transform: translateZ(37.5vh);
           -moz-transform: translateZ(37.5vh);
