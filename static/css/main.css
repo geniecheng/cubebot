@@ -102,9 +102,78 @@ footer {
       footer ul li a {
         color: #FFF;
         text-decoration: none;
-        transition: color .25s ease-in-out; }
+        transition: color .125s ease-in-out;
+        text-transform: uppercase; }
         footer ul li a:hover {
           color: yellow; }
+
+#modal {
+  -webkit-transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  -webkit-transform: scale(0.98, 0.98);
+  -moz-transform: scale(0.98, 0.98);
+  -ms-transform: scale(0.98, 0.98);
+  transform: scale(0.98, 0.98);
+  position: absolute;
+  z-index: 100;
+  width: 75vw;
+  height: 75vh;
+  left: 12.5vw;
+  top: 12.5vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  opacity: 0; }
+  #modal #body {
+    padding: 25px; }
+    #modal #body > *:first-child {
+      margin-top: 0; }
+  #modal .close {
+    float: right;
+    margin: 5px 5px 0 0;
+    text-decoration: none;
+    padding: 10px;
+    font-family: "GraphikReg", sans-serif; }
+    #modal .close:link, #modal .close:visited {
+      color: #000; }
+    #modal .close:hover {
+      color: red; }
+  #modal.in {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1); }
+  #modal.out {
+    opacity: 0;
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1); }
+  #modal.off {
+    z-index: -1; }
+
+#screen {
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  background-color: rgba(40, 40, 40, 0.5);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 99; }
+
+#modal.in + #screen {
+  opacity: 1; }
+
+#modal.off + #screen {
+  z-index: -1; }
 
 section {
   display: -webkit-box;
@@ -130,7 +199,8 @@ nav {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-top: 2%; }
+  margin-top: 2%;
+  z-index: 50; }
   nav hr {
     margin: 5px 0 10px 0;
     border-color: black;
@@ -154,11 +224,6 @@ nav {
     background-color: yellow;
     margin-bottom: 10px; }
     nav a span {
-      -webkit-transition: color 0.3s;
-      -moz-transition: color 0.3s;
-      -ms-transition: color 0.3s;
-      -o-transition: color 0.3s;
-      transition: color 0.3s;
       padding: 10px;
       text-transform: uppercase;
       text-align: center;

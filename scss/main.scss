@@ -42,9 +42,10 @@ footer {
             display:inline-block;
 
             a {
+                @include transition(color .125s ease-in-out)
                 color:#FFF;
                 text-decoration: none;
-                transition: color .25s ease-in-out;
+                text-transform: uppercase;
 
                 &:hover {
                     color:yellow;
@@ -52,6 +53,78 @@ footer {
             }
         }
     }
+}
+
+#modal {
+    @include transition(opacity .3s ease-in-out, transform .3s ease-in-out);
+    @include transform(scale(0.98,0.98));
+
+    position:absolute;
+    z-index:100;
+    width:75vw;
+    height: 75vh;
+    left: 12.5vw;
+    top:12.5vh;
+    background-color:rgba(255,255,255,0.9);
+    opacity:0;
+
+    #body {
+        padding: 25px;
+
+        & > *:first-child {
+            margin-top:0;
+        }
+    }
+
+    .close {
+        float:right;
+        margin:5px 5px 0 0;
+        text-decoration: none;
+        padding:10px;
+        font-family:$graphik;
+
+        &:link, &:visited {
+            color:#000;
+        }
+
+        &:hover {
+            color:red;
+        }
+    }
+
+    &.in {
+        opacity:1;
+        @include transform(scale(1,1));
+    }
+
+    &.out {
+        opacity:0;
+        @include transform(scale(1,1));
+    }
+
+    &.off {
+        z-index:-1;
+    }
+}
+
+#screen {
+    @include transition(opacity .3s ease-in-out);
+    position:absolute;
+    background-color:rgba(40,40,40,0.5);
+    width:100vw;
+    height:100vh;
+    top:0;
+    left:0;
+    opacity:0;
+    z-index:99;
+}
+
+#modal.in + #screen {
+    opacity:1;
+}
+
+#modal.off + #screen {
+    z-index:-1;
 }
 
 section {
@@ -71,6 +144,7 @@ nav {
     @include align(center);
 
     margin-top:2%;
+    z-index:50;
 
     hr {
         margin: 5px 0 10px 0;
@@ -92,8 +166,6 @@ nav {
         margin-bottom: 10px;
 
         span {
-            @include transition(color .3s);
-
             padding: 10px;
             text-transform:uppercase;
             text-align: center;

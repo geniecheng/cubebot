@@ -123,6 +123,23 @@ function transform(x,y){
     }
 }
 
+function modal(evt) {
+    evt.preventDefault();
+    $modal = $('#modal');
+
+    if($modal.hasClass('off')){
+        $modal.removeClass('off')
+              .addClass('in');
+    } else {
+        $modal.removeClass('in')
+              .addClass('out');
+
+        setTimeout(function (){
+            $modal.removeClass('out').addClass('off');
+        }, 300);
+    }
+}
+
 
 /* get a random face for og & twitter image */
 $.getJSON(URL+'/photography/',function (data){
@@ -173,4 +190,14 @@ $(function (){
 
 
     $(document).on('click','.face-nav',orientCube);
+
+    /* wire up modal */
+    $.getJSON(URL+'/flex-content/', function (data) {
+        if(data.results)
+            $('#modal > #body').html(data.results[0].html);
+    });
+
+    $('.about-modal').on('click', modal);
+    $('#modal > .close').on('click', modal);
+    $('#screen').on('click', modal);
 });

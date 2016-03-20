@@ -2,7 +2,6 @@ var transEndStr = 'webkitTransitionEnd transitionend msTransitionEnd oTransition
 var URL;
 
 URL = 'https://morning-thicket-7130.herokuapp.com/api';
-//URL = 'http://localhost:8000/api';
 
 
 cursorRight = 'url("../img/arrow-35-right.png"),e-resize';
