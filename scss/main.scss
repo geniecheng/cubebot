@@ -34,9 +34,11 @@ footer {
         @include align(center);
 
         width:35%;
-        margin:0 35%;
+        margin:0 auto;
         padding:0;
         height:100%;
+
+        min-width:550px;
 
         li {
             display:inline-block;
@@ -162,7 +164,7 @@ nav {
         height:60px;
 
         text-decoration: none;
-        background-color:yellow;
+        background-color:white;
         margin-bottom: 10px;
 
         span {
@@ -181,7 +183,7 @@ nav {
         }
 
         &:hover {
-            background-color:white;
+            background-color:yellow;
         }
     }
 }
@@ -189,7 +191,7 @@ nav {
 #main-col {
     @include flexbox();
     @include direction(column);
-    @include justify(center);
+    @include justify(flex-start);
     @include align(center);
 
     height: calc(100% - #{$footer-height});
@@ -197,12 +199,13 @@ nav {
 
     header {
         @include flexbox();
-        @include align(center);
+        @include align(flex-start);
         @include justify(center);
 
         height:10%;
         width:100%;
         margin-left:-13%;
+        margin-top:2%;
 
         #logo {
             height:75%;
@@ -468,6 +471,14 @@ html[data-useragent*='MSIE 10.0'] {
 
         &.photos {
             display:block;
+        }
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    footer {
+        ul {
+            min-width:normal;
         }
     }
 }

@@ -111,7 +111,7 @@ var Instagram = Backbone.View.extend({
 var Tube = Backbone.Model.extend({
     template: _.template(
     "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\""+
-        "src=\"http://www.youtube.com/embed/<%= o.get('yt_id') %>\""+
+        "src=\"http://www.youtube.com/embed/<%= o.get('yt_id') %>?list=PLtMVMvGk4czo1X91XO5o_eKETRZWPTRSu\""+
         "frameborder=\"0\"/>"
         //"<h3><%= o.get('title') %></h3>"+
         //"<p><%= o.get('description') %></p>"

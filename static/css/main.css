@@ -94,15 +94,20 @@ footer {
     -ms-flex-align: center;
     align-items: center;
     width: 35%;
-    margin: 0 35%;
+    margin: 0 auto;
     padding: 0;
-    height: 100%; }
+    height: 100%;
+    min-width: 550px; }
     footer ul li {
       display: inline-block; }
       footer ul li a {
+        -webkit-transition: color 0.125s ease-in-out;
+        -moz-transition: color 0.125s ease-in-out;
+        -ms-transition: color 0.125s ease-in-out;
+        -o-transition: color 0.125s ease-in-out;
+        transition: color 0.125s ease-in-out;
         color: #FFF;
         text-decoration: none;
-        transition: color .125s ease-in-out;
         text-transform: uppercase; }
         footer ul li a:hover {
           color: yellow; }
@@ -221,7 +226,7 @@ nav {
     width: 125px;
     height: 60px;
     text-decoration: none;
-    background-color: yellow;
+    background-color: white;
     margin-bottom: 10px; }
     nav a span {
       padding: 10px;
@@ -233,7 +238,7 @@ nav {
     nav a:visited {
       color: #000; }
     nav a:hover {
-      background-color: white; }
+      background-color: yellow; }
 
 #main-col {
   display: -webkit-box;
@@ -244,9 +249,9 @@ nav {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  justify-content: flex-start;
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
@@ -258,15 +263,16 @@ nav {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
     height: 10%;
     width: 100%;
-    margin-left: -13%; }
+    margin-left: -13%;
+    margin-top: 2%; }
     #main-col header #logo {
       height: 75%; }
   #main-col #container {
@@ -297,14 +303,14 @@ nav {
       list-style-type: none;
       margin: 0;
       opacity: 1;
-      width: 75vh;
-      height: 75vh;
+      width: 80vh;
+      height: 80vh;
       -webkit-transform-style: preserve-3d;
       -moz-transform-style: preserve-3d;
-      -webkit-transform: translateZ(-37.5vh);
-      -moz-transform: translateZ(-37.5vh);
-      -ms-transform: translateZ(-37.5vh);
-      transform: translateZ(-37.5vh); }
+      -webkit-transform: translateZ(-40vh);
+      -moz-transform: translateZ(-40vh);
+      -ms-transform: translateZ(-40vh);
+      transform: translateZ(-40vh); }
       #main-col #container #cube.ready {
         opacity: 1; }
       #main-col #container #cube.smoothing {
@@ -472,35 +478,35 @@ nav {
                 font-family: "GraphikReg", sans-serif;
                 font-size: 3vh; }
         #main-col #container #cube .face.front {
-          -webkit-transform: translateZ(37.5vh);
-          -moz-transform: translateZ(37.5vh);
-          -ms-transform: translateZ(37.5vh);
-          transform: translateZ(37.5vh); }
+          -webkit-transform: translateZ(40vh);
+          -moz-transform: translateZ(40vh);
+          -ms-transform: translateZ(40vh);
+          transform: translateZ(40vh); }
         #main-col #container #cube .face.right {
-          -webkit-transform: translateX(37.5vh) rotateY(90deg);
-          -moz-transform: translateX(37.5vh) rotateY(90deg);
-          -ms-transform: translateX(37.5vh) rotateY(90deg);
-          transform: translateX(37.5vh) rotateY(90deg); }
+          -webkit-transform: translateX(40vh) rotateY(90deg);
+          -moz-transform: translateX(40vh) rotateY(90deg);
+          -ms-transform: translateX(40vh) rotateY(90deg);
+          transform: translateX(40vh) rotateY(90deg); }
         #main-col #container #cube .face.back {
-          -webkit-transform: translateZ(-37.5vh) rotateY(180deg);
-          -moz-transform: translateZ(-37.5vh) rotateY(180deg);
-          -ms-transform: translateZ(-37.5vh) rotateY(180deg);
-          transform: translateZ(-37.5vh) rotateY(180deg); }
+          -webkit-transform: translateZ(-40vh) rotateY(180deg);
+          -moz-transform: translateZ(-40vh) rotateY(180deg);
+          -ms-transform: translateZ(-40vh) rotateY(180deg);
+          transform: translateZ(-40vh) rotateY(180deg); }
         #main-col #container #cube .face.left {
-          -webkit-transform: translateX(-37.5vh) rotateY(-90deg);
-          -moz-transform: translateX(-37.5vh) rotateY(-90deg);
-          -ms-transform: translateX(-37.5vh) rotateY(-90deg);
-          transform: translateX(-37.5vh) rotateY(-90deg); }
+          -webkit-transform: translateX(-40vh) rotateY(-90deg);
+          -moz-transform: translateX(-40vh) rotateY(-90deg);
+          -ms-transform: translateX(-40vh) rotateY(-90deg);
+          transform: translateX(-40vh) rotateY(-90deg); }
         #main-col #container #cube .face.top {
-          -webkit-transform: translateY(-37.5vh) rotateX(90deg);
-          -moz-transform: translateY(-37.5vh) rotateX(90deg);
-          -ms-transform: translateY(-37.5vh) rotateX(90deg);
-          transform: translateY(-37.5vh) rotateX(90deg); }
+          -webkit-transform: translateY(-40vh) rotateX(90deg);
+          -moz-transform: translateY(-40vh) rotateX(90deg);
+          -ms-transform: translateY(-40vh) rotateX(90deg);
+          transform: translateY(-40vh) rotateX(90deg); }
         #main-col #container #cube .face.bottom {
-          -webkit-transform: translateY(37.5vh) rotateX(-90deg);
-          -moz-transform: translateY(37.5vh) rotateX(-90deg);
-          -ms-transform: translateY(37.5vh) rotateX(-90deg);
-          transform: translateY(37.5vh) rotateX(-90deg); }
+          -webkit-transform: translateY(40vh) rotateX(-90deg);
+          -moz-transform: translateY(40vh) rotateX(-90deg);
+          -ms-transform: translateY(40vh) rotateX(-90deg);
+          transform: translateY(40vh) rotateX(-90deg); }
 
 .graphik-reg {
   font-family: "GraphikReg", sans-serif; }
@@ -513,3 +519,7 @@ html[data-useragent*='MSIE 10.0'] nav a {
 
 html[data-useragent*='MSIE 10.0'] #container #cube .face.photos {
   display: block; }
+
+@media screen and (max-width: 1400px) {
+  footer ul {
+    min-width: normal; } }

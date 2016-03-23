@@ -5,7 +5,7 @@ var cube;
 
 var x = 0;
 var y = 0;
-var z = 37.5;
+var z = 40;
 
 var ua = window.navigator.userAgent;
 var ie = (ua.indexOf('MSIE') + ua.indexOf('Triden')>-2);
