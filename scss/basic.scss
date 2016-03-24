@@ -3,7 +3,7 @@
 html,body {
     width:auto;
     height:auto;
-    min-width:auto;
+    min-width:inherit;
 }
 
 nav {
@@ -13,6 +13,7 @@ nav {
 #main-col {
     display:block;
     height:auto;
+    width:95vw;
     margin:0 auto;
 
     header {
@@ -31,6 +32,7 @@ nav {
         margin-top:5vh;
         padding-bottom:5vh;
         margin-left:0;
+        width:95vw;
 
         #intermediary {
             perspective: none;
@@ -38,13 +40,13 @@ nav {
 
         #cube {
             @include transform(none);
+            margin-bottom:50px;
             width:auto;
             height:auto;
-            margin-bottom:50px;
 
             .face {
-                width:85vw;
-                height:85vw;
+                width:95vw;
+                height:95vw;
                 position:relative;
 
                 &:not(:last-of-type) {
@@ -78,5 +80,10 @@ footer {
     ul {
         width:95%;
         margin: 0 2.5%;
+        min-width:inherit;
+
+        li {
+            font-size:11px;
+        }
     }
 }

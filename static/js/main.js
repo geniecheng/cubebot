@@ -194,7 +194,7 @@ $(function (){
     /* wire up modal */
     $.getJSON(URL+'/flex-content/', function (data) {
         if(data.results)
-            $('#modal > #body').html(data.results[0].html);
+            $('#text').html(data.results[0].html);
     });
 
     $('.about-modal').on('click', modal);

@@ -7,7 +7,7 @@
 html, body {
   width: auto;
   height: auto;
-  min-width: auto; }
+  min-width: inherit; }
 
 nav {
   display: none; }
@@ -15,6 +15,7 @@ nav {
 #main-col {
   display: block;
   height: auto;
+  width: 95vw;
   margin: 0 auto; }
   #main-col header {
     margin: 25px 0 0 0;
@@ -27,7 +28,8 @@ nav {
     width: auto;
     margin-top: 5vh;
     padding-bottom: 5vh;
-    margin-left: 0; }
+    margin-left: 0;
+    width: 95vw; }
     #main-col #container #intermediary {
       perspective: none; }
     #main-col #container #cube {
@@ -35,12 +37,12 @@ nav {
       -moz-transform: none;
       -ms-transform: none;
       transform: none;
+      margin-bottom: 50px;
       width: auto;
-      height: auto;
-      margin-bottom: 50px; }
+      height: auto; }
       #main-col #container #cube .face {
-        width: 85vw;
-        height: 85vw;
+        width: 95vw;
+        height: 95vw;
         position: relative;
         -webkit-transform: none !important;
         -moz-transform: none !important;
@@ -62,4 +64,7 @@ footer {
   height: 50px; }
   footer ul {
     width: 95%;
-    margin: 0 2.5%; }
+    margin: 0 2.5%;
+    min-width: inherit; }
+    footer ul li {
+      font-size: 11px; }
