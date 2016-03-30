@@ -6,7 +6,9 @@ html,body {
     font-family:Arial;
     height:100%;
     width:100%;
+
     min-width:960px;
+    min-height:500px;
 }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
