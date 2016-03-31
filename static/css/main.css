@@ -96,8 +96,8 @@ footer {
     display: -webkit-flex;
     display: flex;
     position: relative;
-    padding: 2%;
-    height: 96%; }
+    padding: 5%;
+    height: 90%; }
     #modal #body .img {
       width: 50%; }
       #modal #body .img img {

@@ -102,20 +102,34 @@ footer {
 }
 
 #modal {
+    position:fixed;
     height: 78vh;
 
     #body {
         display:block;
+        padding: 2%;
+        height:96%;
 
         .img {
-            margin: 0 auto;
+            float:left;
+            padding: 0 10px 10px 0;
         }
 
         #text {
+            display:block;
             width:100%;
             font-size:14px;
+
+            & > *:last-child {
+                margin-top:0;
+                font-size:13px;
+            }
         }
     }
+}
+
+#screen {
+    position:fixed;
 }
 
 @media screen and (min-width: 600px) {

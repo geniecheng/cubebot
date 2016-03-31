@@ -101,14 +101,25 @@ footer {
       font-size: 11px; }
 
 #modal {
+  position: fixed;
   height: 78vh; }
   #modal #body {
-    display: block; }
+    display: block;
+    padding: 2%;
+    height: 96%; }
     #modal #body .img {
-      margin: 0 auto; }
+      float: left;
+      padding: 0 10px 10px 0; }
     #modal #body #text {
+      display: block;
       width: 100%;
       font-size: 14px; }
+      #modal #body #text > *:last-child {
+        margin-top: 0;
+        font-size: 13px; }
+
+#screen {
+  position: fixed; }
 
 @media screen and (min-width: 600px) {
   #modal #body .img {
