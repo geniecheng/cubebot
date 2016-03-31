@@ -23,7 +23,7 @@ var rotationMap = {
     'bottom': [90,0]
 }
 var reverseRotationMap = {
-    'front':[0,0],
+    'front':[0,-360],
     'right':[0,-90],
     'back':[0,-180],
     'left':[0,-270],
@@ -40,12 +40,20 @@ var ieCubeMap = {
     'bottom':'rotateX(-90deg) translateZ('+z+'vh)'
 }
 
+function difference(a,b) {
+    return Math.abs(a - b);
+}
 
 function transEnd(){
     if(ie)
         $cube.find('.face').removeClass('smoothing');
     else
         $cube.removeClass('smoothing');
+
+    if(x === -360 || x === 360){
+        x = 0;
+        transform(x,y);
+    }
 
     $(window).trigger('anim-done');
 }
@@ -67,18 +75,6 @@ function orientCube(evt){
         });
     }
 
-    /*
-        reorient faces to within one revolution
-    */
-    if(face === 'front'){
-        x = Math.abs(x) < 180 || Math.abs(x) > 540 ? x % 360: x>0? x - 360 : x + 360;
-        y = Math.abs(y) < 180 || Math.abs(y) > 540  ? y % 360: y>0? y - 360 : y + 360;
-    }else{
-        x = x % 360;
-        y = y % 360;
-    }
-    transform(x,y);
-
     setTimeout(function (){
         if(ie)
             $cube.find('.face').addClass('smoothing');
@@ -88,15 +84,33 @@ function orientCube(evt){
         if(y == rotationMap[face][0] && x == rotationMap[face][1]){
             transEnd();
         }else{
-            if(y >= 0)
-                y = rotationMap[face][0];
-            else
-                y = reverseRotationMap[face][0];
 
-            if(x >= 0)
-                x = rotationMap[face][1];
-            else
-                x = reverseRotationMap[face][1];
+            var x1 = rotationMap[face][1];
+            var x2 = reverseRotationMap[face][1];
+            var y1 = rotationMap[face][0];
+            var y2 = reverseRotationMap[face][0];
+
+            if(difference(x1,x) < difference(x2,x))
+                x = (x == 270 && x1 == 0 ? 360:x1);
+            else if(difference(x1,x) === difference(x2,x)){
+                if(x < 0)
+                    x = x2
+                else
+                    x = x1
+            } else
+                x = x2
+
+            if(difference(y1,y) < difference(y2,y))
+                y = y1;
+            else if(difference(y1,y) === difference(y2,y)){
+                if(y < 0)
+                    y = y2
+                else
+                    y = y1
+            } else
+                y = y2
+
+
 
             transform(x,y);
         }
@@ -165,9 +179,19 @@ $(function (){
     cube = new Cube();
     $cube = cube.render().$el;
 
-    $('#intermediary').append(
+    $container.append(
         $cube
     );
+
+    /* wire up modal */
+    $.getJSON(URL+'/flex-content/', function (data) {
+        if(data.results)
+            $('#text').html(data.results[0].html);
+    });
+
+    $('.about-modal').on('click', modal);
+    $('#modal > .close').on('click', modal);
+    $('#screen').on('click', modal);
 
     if(window.location.search.replace('?','') === 'basic' || isMobile()){
         var css = document.createElement('link');
@@ -190,14 +214,4 @@ $(function (){
 
 
     $(document).on('click','.face-nav',orientCube);
-
-    /* wire up modal */
-    $.getJSON(URL+'/flex-content/', function (data) {
-        if(data.results)
-            $('#text').html(data.results[0].html);
-    });
-
-    $('.about-modal').on('click', modal);
-    $('#modal > .close').on('click', modal);
-    $('#screen').on('click', modal);
 });

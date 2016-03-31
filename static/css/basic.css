@@ -4,6 +4,29 @@
   display: table;
   clear: both; }
 
+/* flexbox specs */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/* global style variables */
+/* TODO: colors defined here */
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* non-prefixed version, currently
+                                  not supported by any browser */ }
+
 html, body {
   width: auto;
   height: auto;
@@ -20,6 +43,8 @@ nav {
   #main-col header {
     margin: 25px 0 0 0;
     width: auto; }
+    #main-col header a {
+      text-align: center; }
     #main-col header img {
       width: 75%; }
   #main-col #container {
@@ -29,9 +54,8 @@ nav {
     margin-top: 5vh;
     padding-bottom: 5vh;
     margin-left: 0;
-    width: 95vw; }
-    #main-col #container #intermediary {
-      perspective: none; }
+    width: 95vw;
+    perspective: none; }
     #main-col #container #cube {
       -webkit-transform: none;
       -moz-transform: none;
@@ -40,6 +64,15 @@ nav {
       margin-bottom: 50px;
       width: auto;
       height: auto; }
+      #main-col #container #cube .label {
+        background-color: yellow;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 10px 0;
+        padding: 10px 0;
+        font-family: "GraphikReg", sans-serif; }
+        #main-col #container #cube .label h1 {
+          margin: 0; }
       #main-col #container #cube .face {
         width: 95vw;
         height: 95vw;
@@ -49,8 +82,6 @@ nav {
         -ms-transform: none !important;
         transform: none !important;
         position: relative; }
-        #main-col #container #cube .face:not(:last-of-type) {
-          margin-bottom: 5vh; }
         #main-col #container #cube .face.photos .photo-item {
           margin: 0;
           padding: 0% 0 0 0%; }
@@ -68,3 +99,22 @@ footer {
     min-width: inherit; }
     footer ul li {
       font-size: 11px; }
+
+#modal {
+  height: 78vh; }
+  #modal #body {
+    display: block; }
+    #modal #body .img {
+      margin: 0 auto; }
+    #modal #body #text {
+      width: 100%;
+      font-size: 14px; }
+
+@media screen and (min-width: 600px) {
+  #modal #body .img {
+    width: 20%; }
+  #modal #body #text {
+    font-size: 12px; }
+  #main-col #container #cube .face {
+    width: 45vw;
+    height: 45vw; } }

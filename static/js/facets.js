@@ -556,9 +556,13 @@ $(function (){
 
             // plot nav
             _(this.config.models[0].attributes.nav_order).each(_.bind(function (_type,face){
-                this.$nav.append(
-                    this.navTemplate({face:face,label:labels[_type]})
-                );
+                if(isMobile()) {
+                    $('.'+face).after("<li class='label'><h1>"+labels[_type]+"</h1></li>");
+                } else {
+                    this.$nav.append(
+                        this.navTemplate({face:face,label:labels[_type]})
+                    );
+                }
             },this));
 
             this.$nav.append(

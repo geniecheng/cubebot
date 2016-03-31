@@ -11,14 +11,32 @@ html,body {
     min-height:500px;
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-$iw: 612px;
-$ih: 612px;
-
 $footer-height: 35px;
+
+@mixin faces($w){
+    &.front {
+        @include transform(translateZ($w/2));
+    }
+    &.right {
+        @include transform(translateX($w/2) rotateY(90deg));
+    }
+
+    &.back {
+        @include transform(translateZ(-$w/2) rotateY(180deg));
+    }
+
+    &.left {
+        @include transform(translateX(-$w/2) rotateY(-90deg));
+    }
+
+    &.top {
+        @include transform(translateY(-$w/2) rotateX(90deg));
+    }
+
+    &.bottom {
+        @include transform(translateY($w/2) rotateX(-90deg));
+    }
+}
 
 footer {
     width: 100vw;
@@ -29,6 +47,7 @@ footer {
     text-align:center;
     color:white;
     font-family:$graphik;
+    z-index:100;
 
     ul {
         @include flexbox();
@@ -250,10 +269,8 @@ nav {
         height:85%;
         margin-left:-13%;
 
-        #intermediary {
-            perspective: 3000px;
-            perspective-origin: 50% 50%;
-        }
+        perspective: 3000px;
+        perspective-origin: 50% 50%;
 
         #cube {
             @include transition(opacity .35s ease-in-out);
@@ -364,6 +381,8 @@ nav {
                 &.instagram {
                     /* 2x2 grid */
 
+                    background-color:#FFF;
+
                     $pw: 85%;
                     $cols: 3;
                     .photo {
@@ -417,6 +436,8 @@ nav {
                     @include direction(column);
                     @include align(center);
                     @include justify(center);
+
+                    background-color: #000;
 
                     .video {
                         width:90%;
@@ -498,7 +519,6 @@ html[data-useragent*='MSIE 10.0'] {
     }
 
     #container #cube .face {
-
         &.photos {
             display:block;
         }
@@ -509,6 +529,27 @@ html[data-useragent*='MSIE 10.0'] {
     footer {
         ul {
             min-width:normal;
+        }
+    }
+}
+
+@media screen and (max-height: 730px) {
+
+    $sm: 450px;
+
+    #main-col {
+        min-height:600px;
+
+        #container #cube {
+            width:$sm;
+            height:$sm;
+
+            .face {
+                width:$sm;
+                height:$sm;
+
+                @include faces($sm);
+            }
         }
     }
 }

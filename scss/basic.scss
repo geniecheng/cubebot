@@ -1,4 +1,5 @@
 @import 'fn.scss';
+@import 'base.scss';
 
 html,body {
     width:auto;
@@ -20,6 +21,10 @@ nav {
         margin:25px 0 0 0;
         width:auto;
 
+        a {
+            text-align: center;
+        }
+
         img {
             width: 75%;
         }
@@ -34,9 +39,7 @@ nav {
         margin-left:0;
         width:95vw;
 
-        #intermediary {
-            perspective: none;
-        }
+        perspective: none;
 
         #cube {
             @include transform(none);
@@ -44,14 +47,24 @@ nav {
             width:auto;
             height:auto;
 
+            .label {
+                background-color:yellow;
+                text-transform: uppercase;
+                text-align: center;
+                margin: 10px 0;
+                padding: 10px 0;
+                font-family: $graphik;
+
+                h1 {
+                    margin:0;
+                }
+            }
+
             .face {
                 width:95vw;
                 height:95vw;
                 position:relative;
 
-                &:not(:last-of-type) {
-                    margin-bottom:5vh;
-                }
 
                 @include transform(none !important);
                 position:relative;
@@ -84,6 +97,44 @@ footer {
 
         li {
             font-size:11px;
+        }
+    }
+}
+
+#modal {
+    height: 78vh;
+
+    #body {
+        display:block;
+
+        .img {
+            margin: 0 auto;
+        }
+
+        #text {
+            width:100%;
+            font-size:14px;
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    #modal {
+        #body {
+            .img {
+                width:20%;
+            }
+
+            #text {
+                font-size:12px;
+            }
+        }
+    }
+
+    #main-col #container #cube {
+        .face {
+            width:45vw;
+            height:45vw;
         }
     }
 }

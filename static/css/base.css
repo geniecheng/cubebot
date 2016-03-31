@@ -20,33 +20,3 @@
   user-select: none;
   /* non-prefixed version, currently
                                   not supported by any browser */ }
-
-.front {
-  background-color: #2ed03c; }
-  .front:hover span {
-    color: white; }
-
-.right {
-  background-color: #7859b1; }
-  .right:hover span {
-    color: white; }
-
-.back {
-  background-color: #006666; }
-  .back:hover span {
-    color: white; }
-
-.left {
-  background-color: #FF99CC; }
-  .left:hover span {
-    color: white; }
-
-.top {
-  background-color: black; }
-  .top:hover span {
-    color: white; }
-
-.bottom {
-  background-color: white; }
-  .bottom:hover span {
-    color: white; }
