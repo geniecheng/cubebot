@@ -82,7 +82,7 @@ footer {
   -ms-transform: scale(0.98, 0.98);
   transform: scale(0.98, 0.98);
   position: absolute;
-  z-index: 100;
+  z-index: 101;
   width: 85vw;
   height: 85vh;
   left: 7.5vw;
@@ -101,8 +101,7 @@ footer {
     #modal #body .img {
       width: 50%; }
       #modal #body .img img {
-        width: 100%;
-        height: 100%; }
+        width: 100%; }
     #modal #body #text {
       display: -webkit-box;
       display: -moz-box;
@@ -119,6 +118,8 @@ footer {
       margin-left: 2%;
       height: 100%;
       line-height: 1.5; }
+      #modal #body #text p {
+        width: 100%; }
       #modal #body #text > *:first-child {
         margin-top: 0; }
       #modal #body #text > *:last-child {
@@ -162,7 +163,7 @@ footer {
   top: 0;
   left: 0;
   opacity: 0;
-  z-index: 99; }
+  z-index: 100; }
 
 #modal.in + #screen {
   opacity: 1; }

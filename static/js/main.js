@@ -10,25 +10,15 @@ var z = 40;
 var ua = window.navigator.userAgent;
 var ie = (ua.indexOf('MSIE') + ua.indexOf('Triden')>-2);
 var ieFaces = [];
+var handle = null;
 
-
-var initial = true;
-
-var rotationMap = {
+var rot = {
     'front': [0,0],
-    'right': [0,270],
-    'back': [0,180],
-    'left': [0,90],
-    'top': [270,0],
-    'bottom': [90,0]
-}
-var reverseRotationMap = {
-    'front':[0,-360],
-    'right':[0,-90],
-    'back':[0,-180],
-    'left':[0,-270],
-    'top': [-90,0],
-    'bottom': [-270,0]
+    'right': [3,0],
+    'back' : [2,0],
+    'left' : [1,0],
+    'top'  : [0,3],
+    'bottom':[0,1],
 }
 
 var ieCubeMap = {
@@ -44,14 +34,43 @@ function difference(a,b) {
     return Math.abs(a - b);
 }
 
+function getNearestRotation(face, axis) {
+    // current rotation
+    var c = axis === 0 ? x:y;
+
+    var r = rot[face];
+    var a = -360 + r[axis] * 90;
+    var b = r[axis] * 90;
+
+    var rotation = difference(a,c) < difference(b,c) ? a : b;
+
+    // if were a 0 rotation, factor 360 too
+    if( r[axis] == 0){
+        a = -360;
+        b = 360;
+        if(difference(rotation,c) > difference(a,c) ||
+           difference(rotation,c) > difference(b,c))
+            rotation = difference(a,c) < difference(b,c) ? a : b;
+    }
+
+    return rotation;
+}
+
 function transEnd(){
+    handle = null;
+
     if(ie)
         $cube.find('.face').removeClass('smoothing');
     else
         $cube.removeClass('smoothing');
 
-    if(x === -360 || x === 360){
-        x = 0;
+    // zero out 360'd rotations
+    if(Math.abs(x) === 360 || Math.abs(y) === 360){
+        if(Math.abs(x) === 360)
+            x = 0;
+        if(Math.abs(y) === 360)
+            y = 0;
+
         transform(x,y);
     }
 
@@ -75,46 +94,17 @@ function orientCube(evt){
         });
     }
 
-    setTimeout(function (){
-        if(ie)
-            $cube.find('.face').addClass('smoothing');
-        else
-            $cube.addClass('smoothing');
+    if(ie)
+        $cube.find('.face').addClass('smoothing');
+    else
+        $cube.addClass('smoothing');
 
-        if(y == rotationMap[face][0] && x == rotationMap[face][1]){
-            transEnd();
-        }else{
+    x = getNearestRotation(face, 0);
+    y = getNearestRotation(face, 1);
 
-            var x1 = rotationMap[face][1];
-            var x2 = reverseRotationMap[face][1];
-            var y1 = rotationMap[face][0];
-            var y2 = reverseRotationMap[face][0];
-
-            if(difference(x1,x) < difference(x2,x))
-                x = (x == 270 && x1 == 0 ? 360:x1);
-            else if(difference(x1,x) === difference(x2,x)){
-                if(x < 0)
-                    x = x2
-                else
-                    x = x1
-            } else
-                x = x2
-
-            if(difference(y1,y) < difference(y2,y))
-                y = y1;
-            else if(difference(y1,y) === difference(y2,y)){
-                if(y < 0)
-                    y = y2
-                else
-                    y = y1
-            } else
-                y = y2
-
-
-
-            transform(x,y);
-        }
-    },50);
+    transform(x,y);
+    if(handle) clearTimeout(handle);
+    handle = setTimeout(transEnd, 660);
 }
 
 function isMobile(){
@@ -168,11 +158,6 @@ doc.setAttribute('data-useragent', navigator.userAgent);
 
 
 $(function (){
-    /* supress intial centering operation */
-    setTimeout(function (){
-        initial=false;
-    },200);
-
     var $shop = $('nav');
     var $container = $('#container');
 
@@ -206,10 +191,8 @@ $(function (){
     $(document).on('cube-rendered',function (){
         if(ie){
             ieFaces = $cube.find('.face');
-            ieFaces.on('transitionend', transEnd);
             setTimeout(function(){ transform(0,0); }, 50);
-        }else
-            $cube.on(transEndStr, transEnd);
+        }
     });
 
 

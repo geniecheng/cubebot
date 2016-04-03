@@ -72,6 +72,11 @@ nav {
                 &.photos .photo-item{
                     margin:0;
                     padding: 0% 0 0 0%;
+
+                    .photo-slideshow li .caption {
+                        width:60%;
+                        padding: 25px 0 0 25px;
+                    }
                 }
 
                 &.instagram .caption {
@@ -149,6 +154,19 @@ footer {
         .face {
             width:45vw;
             height:45vw;
+        }
+    }
+
+    #main-col #container #cube .face.photos .photo-item .photo-slideshow li .caption {
+        padding:25px 0 0 25px;
+        width:50%;
+
+        h1 {
+            font-size:3vh;
+        }
+
+        p {
+            font-size: 2.75vh;
         }
     }
 }
